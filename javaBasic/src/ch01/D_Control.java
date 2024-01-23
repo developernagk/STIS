@@ -226,7 +226,7 @@ public class D_Control {
 //			System.out.println(numbers[index]);
 //		} // for-each 문 사용 가능
 		
-		//foreach: 컬렉션(배열)의 각 요소를 하나씩 변수에 '복사'하여 사용하는 반복문
+		// foreach: 컬렉션(배열)의 각 요소를 하나씩 변수에 '복사'하여 사용하는 반복문
 		// numbers : {1, 2, 3, 4, 5}
 		for (int number: numbers) {
 			System.out.println(number);

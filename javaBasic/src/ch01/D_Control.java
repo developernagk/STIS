@@ -197,7 +197,8 @@ public class D_Control {
 //		for (int n = 1; n <= 9; n++) {
 //			System.out.println("9 * " + n + " = " + (9*n));
 //		}
-		
+
+		// 2단부터 9단까지 구구단
 //		for (int dan = 2; dan <= 9; dan++) {
 //			for(int n = 1; n <= 9; n++) {
 //				System.out.println(dan + " * " + n + " = " + (dan * n));

@@ -8,6 +8,7 @@ package ch02;
 // 전화번호 : (telNumber - String)
 // 전원상태 : (power - boolean)
 
+// 문서화 작업이 중요함!!
 // 전원버튼누름: onPoewr - poewr 상태를 부정
 // 전화걸기: call - power가 true일 때 "(상대 전화번호)로 전화를 겁니다." 출력
 // 긴급전화걸기: emergency - "112로 전화를 겁니다." 출력

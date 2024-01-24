@@ -56,7 +56,6 @@ public class D_Control {
 		// String result = "성인입니다."; - 여기도 마찬가지, 위에서부터 읽어내리기 때문에 외부에 선언해도 영향이 없음 
 		System.out.println("프로그램 종료");
 		
-		//
 		
 		String fruit = "수박";
 		if (fruit.equals("사과")) {

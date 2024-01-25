@@ -24,7 +24,7 @@ class OverloadClass {
 	
 //	반환 타입이 다른 경우
 	// int method() {  }
-//	매개변수의 이름이 다른 경우
+//	같은 타입이 존재한 경우
 	// void method (int parameter) {  }
 
 	

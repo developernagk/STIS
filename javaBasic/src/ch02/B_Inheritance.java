@@ -32,7 +32,7 @@ class Teacher extends Human {
 	String course;
 	
 	void teach () {
-		System.out.println(name + "가 " + course +"를 가르칩니다.");
+		System.out.println(name + "가 " + course + "를 가르칩니다.");
 	}
 }
 

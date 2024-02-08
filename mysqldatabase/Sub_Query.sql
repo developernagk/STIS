@@ -10,16 +10,31 @@ SELECT * FROM employee WHERE department_code = (SELECT code FROM department); --
 
 -- FROM 절에서 서브쿼리: 쿼리 결과 테이블을 다시 FROM 절에 사용하여 복합적인 테이블 조회
 -- FROM 절에서 서브쿼리를 사용할 경우 서브쿼리에 별칭을 붙여줘야 함
-SELECT * FROM (SELECT name, department_code FROM employee WHERE department_code IS NOT NULL) WHERE name = '홍길동'; -- Error Code: 1248. Every derived table must have its own alias
-SELECT * FROM (SELECT name, department_code FROM employee WHERE department_code IS NOT NULL) AS SQ WHERE name = '홍길동';
-SELECT * FROM (SELECT name, department_code FROM employee WHERE department_code IS NULL) AS SQ WHERE name = '홍길동';
+SELECT * FROM (SELECT name, department_code FROM employee WHERE department_code IS NOT NULL) 
+WHERE name = '홍길동'; -- Error Code: 1248. Every derived table must have its own alias
+SELECT * FROM (SELECT name, department_code FROM employee WHERE department_code IS NOT NULL) AS SQ 
+WHERE name = '홍길동';
+SELECT * FROM (SELECT name, department_code FROM employee WHERE department_code IS NULL) AS SQ 
+WHERE name = '홍길동';
 -- FROM 절 내부의 서브쿼리에서 컬럼명에 별칭을 붙여줄 경우 원문에서도 같이 변경해줘야 함
-SELECT * FROM (SELECT name AS employee_name, department_code FROM employee WHERE department_code IS NULL) AS SQ WHERE name = '홍길동'; -- Error Code: 1054. Unknown column 'name' in 'where clause'
-SELECT * FROM (SELECT name AS employee_name, department_code FROM employee WHERE department_code IS NULL) AS SQ WHERE employee_name = '홍길동';
+SELECT * 
+FROM (SELECT
+  name AS employee_name, 
+  department_code 
+  FROM employee 
+  WHERE department_code IS NULL) AS SQ WHERE name = '홍길동'; -- Error Code: 1054. Unknown column 'name' in 'where clause'
+SELECT * 
+FROM (SELECT 
+  name AS employee_name, 
+  department_code 
+  FROM employee 
+  WHERE department_code IS NULL) AS SQ WHERE employee_name = '홍길동';
 
 -- 부서 이름이 '개발부'인 사원이름, 부서코드, 부서명을 조회
 -- 부서 이름이 '개발부'인 사원이름, 부서코드를 조회
 SELECT * FROM department WHERE name = '개발부'; -- 가장 먼저 조건부 전체를 찾음
 SELECT code FROM department WHERE name = '개발부'; -- 다음으로 관계를 찾아서 관계 작성
 -- 조건부와 관계를 작성 후 원하는 데이터를 조회(아래 코드)
-SELECT name, department_code FROM employee WHERE department_code = (SELECT code FROM department WHERE name = '개발부');
+SELECT name, department_code 
+FROM employee 
+WHERE department_code = (SELECT code FROM department WHERE name = '개발부');

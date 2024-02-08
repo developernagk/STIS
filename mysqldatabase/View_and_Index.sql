@@ -4,7 +4,7 @@ USE practice_sql;
 -- 제한된 보기를 제공할 때, 특정 쿼리문(SELECT)을 미리 작성해두는 용도
 CREATE VIEW employee_view AS
 SELECT E.employee_number AS employee_number, 
-	E.name AS employee_name,
+    E.name AS employee_name,
     D.code AS department_code,
     D.name AS department_name,
     D.tel_number AS department_tel_number

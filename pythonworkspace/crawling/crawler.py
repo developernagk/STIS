@@ -54,3 +54,11 @@ time.sleep(1)
 
 ActionChains(driver).click(news_button).perform()
 time.sleep(3)
+
+news_title_elements = driver.find_elements(By.CLASS_NAME, 'news_tit')
+time.sleep(1)
+
+for news_title_element in news_title_elements:
+    title = news_title_element.text
+    print(title)
+time.sleep(3)

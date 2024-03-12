@@ -61,14 +61,20 @@
                 - 기본적으로 width와 height를 지정하지 않으면 컨텐츠의 사이즈를 따라감
                 - inline과 마찬가지로 요소 뒤에 공백이 있으면 자동으로 space가 지정됨
         */
+        /* 밑의 <div>에서 엔터 없이 작성할 경우 space 지정 안 됨 바로 붙어서 위치 */
         .inline-block-1 {
             display: inline-block;
             background-color: rgba(255, 0, 0, 0.4);
+            width: 200px;
+            height: 300px;
         }
 
         .inline-block-2 {
             display: inline-block;
             background-color: rgba(0, 0, 255, 0.4);
+            width: 300px;
+            height: 200px;
+            margin: 50px;
         }
 
 

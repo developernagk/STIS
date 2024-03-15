@@ -1,0 +1,143 @@
+@font-face {
+    font-family: 'KakaoRegular';
+    src: url('../resource/font/KakaoRegular.ttf');
+}
+
+@font-face {
+    font-family: 'KakaoBold';
+    src: url('../resource/font/KakaoBold.ttf');
+}
+
+* {
+    font-family: 'KakaoRegular', sans-serif;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    min-width: 1712px;
+}
+
+#wrapper {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    width: 1712px;
+}
+
+/* News Box */
+.news-box {
+    display: flex;
+    gap: 16px;
+}
+
+.news-box-contents {
+    background-color: rgba(240, 240, 240, 1);
+    width: 800px;
+    border-radius: 20px;
+    padding: 36px 40px;
+}
+
+.news-content-icon {
+    display: flex;
+    gap: 12px;
+    justify-content: space-between;
+}
+
+.left-icon {
+    display: flex;
+    gap: 12px;
+}
+
+.speaker-icon {
+    background-image: url('https://t1.kakaocdn.net/kakaocorp/kakaocorp/admin/6562f7bc017800001.png');
+    width: 38px;
+    height: 38px;
+    background-size: 100%;
+}
+
+.release-icon {
+    display: flex;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 4px 10px;
+    margin: 5px 0px;
+}
+
+.date-icon {
+    font-size: 14px;
+    line-height: 38px;
+}
+
+.share-icon {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/64/64576.png');
+    width: 24px;
+    height: 24px;
+    background-size: 100%;
+}
+
+.share-icon:hover {
+    cursor: pointer;
+}
+
+.news-content-title {
+    height: 46px;
+    font-size: 23px;
+    letter-spacing: -0.4px;
+    line-height: 46px;
+    margin: 10px 0px 0px;
+}
+
+.news-content-title:hover {
+    cursor: pointer;
+}
+
+/* Plus Content Box */
+.plus-content-box {
+    display: flex;
+    gap: 10px;
+}
+
+.plus-contents {
+    display: flex;
+    height: 110px;
+    background-color: rgba(240, 240, 240, 1);
+    border-radius: 20px;
+    flex-grow: 1;
+    font-size: 24px;
+    letter-spacing: -0.4px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 44px;
+}
+
+.plus-contents:hover{
+    cursor: pointer;
+}
+
+.plus-content-title {
+    display: flex;
+}
+
+.plus-go {
+    display: flex;
+    gap: 10px;
+}
+
+.round-black {
+    display: block;
+    width: 24px;
+    height: 24px;
+    background-color: rgba(0, 0, 0, 1);
+    color: rgba(255, 255, 255, 1);
+    text-align: center;
+    line-height: 24px;
+    border-radius: 12px;
+    font-size: 16px;
+}

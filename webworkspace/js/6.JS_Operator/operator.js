@@ -51,7 +51,7 @@ result = --single;
     - 숫자 타입이 아닌 피연산자에 사용하면 부호가 반전된 숫자 타입으로 변환함
 */
 // console.log(-10); 출력: -10(number)
-// console.log(typeof '-10'); 출력: -10(string)
+// console.log(typeof -'10'); 출력: -10(number)
 // console.log(-true); 출력: -1
 
 
@@ -67,7 +67,7 @@ result = --single;
 
 
 /*
-    할당 연산자 : 
+    할당 연산자 : 우항에 있는 피연산자와 좌항을 연산하여 좌항에 대입
     -  = : 좌항에 우항을 대입
     - += : 좌항에 좌항의 원래 값과 우항을 더한 값을 대입
     - -= : 좌항에 좌항의 원래 값과 우항을 뺀 값을 대입
@@ -79,61 +79,100 @@ result = --single;
 
 
 /*
-    비교 연산자 : 
+    비교 연산자 : 좌항과  우항이 같은지 비교하여 논리 값을 반환
     - == : 동등 비교
     - === : 일치 비교
     - != : 부등 비교
     - !== 불일치 비교
 */
-
+// console.log(10 == '10'); 출력: true
+// console.log(10 === '10'); 출력: false
 
 
 /*
-    대소 관계 비교 연산자 : 
+    대소 관계 비교 연산자 : 피연산자의 크기를 비교하여 논리 값으로 반환
     - > : 좌항이 우항보다 크다
     - < : 좌항이 우항보다 작다
     - >= : 좌항이 우항보다 크거나 같다
     - <= : 좌항이 우항보다 작거나 같다
 */
-
+// console.log(10 > '9'); 출력: true
+// console.log(10 > '99'); 출력: false
 
 
 /*
-    삼항 연산자 : 
-    - 
+    삼항 연산자 : 조건식의 논리 결과에 따라 서로 다른 결과를 반환
+    - 조건식 ? true일 때 반환값: false일 때 반환값
 */
+const number = 9;
+// const result2 = number % 2 === 0 ? '짝수':'홀수';
+let result2 = number % 2 ? '홀수':'짝수' // number % 2가 true가 되기 위해서는 나머지가 1이 나와야 하기 때문에 true일 때 '홀수' false일 때 '짝수'가 나옴
+// number % 2 === 0은 조건식, 0은 항상 false이기 때문에 number % 2가 false인지 확인하는 조건식
+// console.log(result2) 출력: 홀수
 
+if (number % 2) {
+    result2 = '홀수'
+} else {
+    result2 = '짝수'
+}
 
 
 /*
     삼항 연산자는 if else 문과 같은 역할을 함
 */
+let result3 = '';
+if (number > 0) {
+    result3 = '양수';
+} else if (number < 0) {
+    result3 = '음수'
+} else {
+    result3 = '영';
+}
 
+if (number > 0) {
+    result3 = '양수';
+} else {
+    if (number < 0) {
+    result3 = '음수'
+    } else {
+        result3 = '영';
+    }
+}
+
+result3 = number > 0 ? '양수':(number < 0 ? '음수':'영');
 
 
 /*
-    논리 연산자 : 
+    논리 연산자 : 우항과 좌항의 피연산자를 논리 연산
     - || : 좌항과 우항 중 하나라도 true면 true, 그렇지 않으면 false
     - && : 좌항과 우항이 모두 true 이면 true, 그렇지 않으면 false
     - ! : 우항을 부정, 우항이 true이면 false, false이면 true
 */
+// console.log(true || '홍길동'); 출력: true
+// console.log(false || '홍길동'); 출력: 홍길동
+// console.log(true && '홍길동'); 출력: 홍길동
+// console.log(false && '홍길동'); 출력: 홍길동
 
-
-
-/*
-    - 
-*/
-
-
-
-/*
-    쉼표 연산자 : 
-*/
-
+// console.log('홍길동' && true); 출력: true
 
 
 /*
-    typeof 연산자 : 
+    - || 연산자와 && 연산자의 결과는 논리 값이 아닐 수 있음
 */
 
 
+/*
+    쉼표 연산자 : 왼쪽 피연산자부터 차례로 피연산자를 연산
+*/
+let x, y, z;
+x = 10, y = 20, z = 30;
+
+
+/*
+    typeof 연산자 : 우항의 데이터 및 변수의 타입을 문자열로 반환
+*/
+let type = typeof x;
+// console.log(type); 출력: number
+// console.log(typeof type); 출력: string
+console.log(typeof x);
+console.log(typeof 'typeof 10');

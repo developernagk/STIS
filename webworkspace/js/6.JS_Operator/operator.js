@@ -174,5 +174,4 @@ x = 10, y = 20, z = 30;
 let type = typeof x;
 // console.log(type); 출력: number
 // console.log(typeof type); 출력: string
-console.log(typeof x);
-console.log(typeof 'typeof 10');
+

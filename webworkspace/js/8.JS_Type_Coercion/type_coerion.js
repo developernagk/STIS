@@ -29,7 +29,6 @@ if (null) console.log('null');
 if (!null) console.log('not null');
 // 출력: not null
 
-
 console.log('==============================');
 
 /*
@@ -50,36 +49,49 @@ console.log((10).toString());
 console.log(typeof (10).toString());
 // 출력: 10 / string
 
-
 console.log('==============================');
 
 /*
     숫자 타입으로 형변환
-    - 
-    - 
+    - Number 클래스의 생성자를 new 연산자 없이 사용
+    - 문자열일 경우 parseInt(), parseFloat() 메서드 사용 가능
+    - + 단항 연산자 사용 가능
 */
+console.log(Number(false));
+console.log(typeof Number(false));
+// 출력: 0 / number
 
+console.log(parseInt('10'));
+console.log(typeof parseInt('10'));
+// 출력: 10 / number
 
+console.log(parseFloat('10.8'));
+console.log(typeof parseFloat('10.8'));
+// 출력: 10.8 / number
 
 console.log('==============================');
 
 /*
     불리언 타입으로 형변환
-    - 
-    - 
+    - Boolean 클래스의 생성자를 new 연산자 없이 사용
+    - !! 사용 가능
 */
-
-
+console.log(Boolean('문자열'));
+// 출력: true
+console.log(!'문자열');
+// 출력: false
+console.log(!!'문자열');
+// 출력: true
 
 console.log('==============================');
 
 /*
     단축 평가 
-    - 
-    - 
-    - 
-    - 
-    - 
+    - 논리 연산자는 논리 결과를 결정한 피연산자의 결과를 그대로 반환
+    - true && data -> data
+    - false && data -> false
+    - true || data -> true
+    - false || data -> data
 */
-
-
+console.log('홍길동' || false);
+// 출력: 홍길동

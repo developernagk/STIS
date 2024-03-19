@@ -1,50 +1,69 @@
 /*
-    산술 연산자 : 
-    - 
-    - 
+    산술 연산자 : 사칙 연산을 수행하는 연산
+    - 산술 연산을 할 수 없으면 NaN을 반환
+    - 이항 산술 연산과 단항 산술 연산
 */
 
 /*
-    이항 산술 연산자 : 
-    - 
+    이항 산술 연산자 : 항이 두 개가 필요한 산술 연산자
+    - 피연산자를 변경하는 부수 효과가 존재하지 않음
     - + : 덧셈
     - - : 뺄셈
     - * : 곱셈
     - / : 나눗셈
     - % : 나머지
 */
-
+// console.log(10 / 3); 출력: 3.3333333333333335
+// console.log('십' / 3); 출력: NaN
+// console.log(10 / 0); 출력: Infinity
 
 
 /*
-    당항 산술 연산자 : 
-    - 
+    당항 산술 연산자 : 항이 한 개인 산술 연산자
+    - 피연산자를 변경하는 부수 효과가 발생할 수 있음
     - ++ : 증가
     - -- : 감소
     - + : 어떠한 효과도 없음
     - - : 양수를 음수로 음수를 양수로 변경
 */
-
+let single = 0;
+let result = 0;
+// 선대입 후증가
+result = single++ * 8; // 출력: 0
+// 선증가 후대입
+result = ++single * 8; // 출력: 16
+// 선대입 후감소
+result = single-- + 9 - ++single; // 출력: 9
+// 선감소 후대입
+result = --single;
 
 
 /*
-    - 
+    - + 단항 연산자는 숫자 타입이 아닌 피연산자에 사용하여 숫자 타입으로 변환함
 */
-
+// console.log(typeof +10); 출력: 10(number)
+// console.log(typeof +'10'); 출력: 10(number)
+// console.log(+true); 출력: 1
 
 
 /*
-    - 
-    - 
+    - - 단항 연산자는 피연산자의 부호를 반전한 값을 반환
+    - 숫자 타입이 아닌 피연산자에 사용하면 부호가 반전된 숫자 타입으로 변환함
 */
-
+// console.log(-10); 출력: -10(number)
+// console.log(typeof '-10'); 출력: -10(string)
+// console.log(-true); 출력: -1
 
 
 /*
     문자열 연결 연산자
-    - 
+    - + 이항 연산자의 피연산자 중 하나라도 문자열이 존재하면 연결 연산자로 사용됨
 */
-
+// console.log(1 +'1'); 출력: 11(string)
+// console.log('A method Start:' + 10 + 'sec'); 출력: A method Start:10sec
+// console.log('A method End:' + 20 + 'sec'); 출력: A method End:20sec
+// 연결 연산자로 사용되기 때문에 숫자가 문자열로 변환되어 2010 으로 출력됨
+// console.log('A method:' + 20 + 10 + 'sec'); 출력: A method:2010sec
 
 
 /*

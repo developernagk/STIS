@@ -1,7 +1,10 @@
 package com.nagyeong.basic.controller;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,16 +28,48 @@ public class BasicController {
         return "Hello Springboot!!";
     }
 
+    // HTTP GET Method : 클라이언트가 서버로부터 데이터를 받기를 원할 때 사용하는 메서드 ex) 회원가입
     // @GetMapping() : RequestMapping 기능을 GET Method에 한정시킨 것(가독성 + 안정성)
     @GetMapping("/apple")
     public String getApple() {
         return "Get Mapping으로 만든 메서드";
     }
 
+    // HTTP POST Method : 클라이언트가 서버에 데이터를 작성하기를 원할 때 사용하는 메서드 ex) 유저 정보 보기, 로그인(실제 동작은 GET이나 보안 상의 문제로 POST 사용)
     // @PostMapping() : RequestMapping 기능을 POST Method에 한정시킨 것(가독성 + 안정성)
+    // insert 기능
     @PostMapping("/apple")
     public String postApple() {
         return "Post Mapping으로 만든 메서드";
     }
+
+    // HTTP PUT Method : 클라이언트가 서버에 있는 리소스 전체를 수정하기를 원할 때 사용하는 메서드 ex) 게시물 수정하기(때에 따라 PATCH로 쓸 때도 있음)
+    // @PutMapping() : RequestMapping 기능을 PUT Method에 한정시킨 것(가독성 + 안정성)
+    // update 기능(전체를 수정)
+    @PutMapping("/apple")
+    public String putApple() {
+        return "Put Mapping으로 만든 메서드";
+    }
+
+    // HTTP PATCH Method : 클라이언트가 서버에 있는 리소스 일부를 수정하기를 원할 때 사용하는 메서드
+    // @PatchMapping() : RequestMapping 기능을 PATCH Method에 한정시킨 것(가독성 + 안정성)
+    // update 기능(일부만 수정)
+    @PatchMapping("/apple")
+    public String patchApple() {
+        return "Patch Mapping으로 만든 메서드";
+    }
+
+    // HTTP DELETE Method : 클라이언트가 서버에 있는 리소스를 삭제하기를 원할 때 사용하는 메서드 ex) 유저 정보 삭제
+    // @DeleteMapping() : RequestMapping 기능을 DELETE Method에 한정시킨 것(가독성 + 안정성)
+    @DeleteMapping("/apple")
+    public String deleteApple() {
+        return "Delete Mapping으로 만든 메서드";
+    }
+
+    // Method + URL Pattern이 중복되면 런타임 중에 에러가 발생
+    // @DeleteMapping("/apple")
+    // public String deleteApple1() {
+    //     return "Delete Mapping으로 만든 메서드";
+    // }
 
 }

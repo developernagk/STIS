@@ -4,10 +4,13 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.FlashMapManager;
+
+import com.nagyeong.basic.dto.SampleDto;
 
 @RestController
 // HTTP * localhost:4000/request-data/**
@@ -32,13 +35,18 @@ public class RequestDataController {
     // - 모든 HTTP 메서드에서 URL의 특정 패턴에 따라서 데이터를 추출하는 방식
 
     //HTTP DELETE localhost:4000/request-data/path-variable
-    @DeleteMapping("/path-variable/{age}")
+    // 여러 개를 지정해줄 경우 {} 안에 경우를 작성
+    @DeleteMapping({
+        "/path-variable/{age}/{name}",
+        "/path-variable/{age}"
+    })
     // http://localhost:4000/request-data/path-variable/10
     public String deletePathVariable(
         // int로 작성할 경우 0이 들어오게 되는데 사용자가 0을 입력한 것인지 기본값이 들어온 건지 알 수 없게 됨
-        @PathVariable("age") Integer age
+        @PathVariable("age") Integer age,
+        @PathVariable(name="name", required=false) String name
     ) {
-        return "사용자 나이 : " + age;
+        return "사용자 나이 : " + age + "/ 사용자 이름 : " + name;
     }
 
     // HTTP PATCH localhost:4000/request-data/patch/gildong/update
@@ -63,6 +71,18 @@ public class RequestDataController {
         @PathVariable("value") String value
     ) {
         return "getPathVariable2";
+    }
+
+    // @RequestBody() : 
+    // - POST, PATCH, PUT처럼 RequestBody로 데이터를 전송하는 메서드에서 데이터를 가져오기 위해 사용
+
+    // HTTP POST localhost:4000/request-data/post
+    @PostMapping("/post")
+    public String post(
+        // @RequestBody String text
+        @RequestBody SampleDto dto
+    ) {
+        return "전송한 데이터 : " + dto.toString();
     }
 
 }

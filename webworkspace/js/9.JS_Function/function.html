@@ -19,11 +19,16 @@
             const b = document.getElementById('b');
             document.getElementById('result').innerText=Number(a.value) + Number(b.value);
         });
+    </script>
 
+    <script>
+        const minusButtonClickEventHandler = function () {
+            const a = document.getElementById('a');
+            const b = document.getElementById('b');
+            document.getElementById('result').innerText=Number(a.value) - Number(b.value);
+        }
         const minusButton = document.getElementById('minus-button');
-        minusButton.addEventListener('click', funtion () {
-            
-        })
+        minusButton.addEventListener('click', minusButtonClickEventHandler);
     </script>
 
 </body>

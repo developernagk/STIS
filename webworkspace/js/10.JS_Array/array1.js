@@ -52,11 +52,13 @@ const fruits = ['apple', 'banana', 'melon'];
 for (let index = 0; index < fruits.length; index++) { // index를 const로 지정 시 상수이기 때문에 증가 연산자 사용 불가능
     console.log(fruits[index]);
 }
+// 출력: apple / banana / melon
 
 // 값 변경에 용이(index만 읽기 때문에 index에 배정된 값을 수정할 수 있음)
 for (const index in fruits) {
     console.log(fruits[index]);
 }
+// 출력: apple / banana / melon
 
 console.log('==============================');
 
@@ -69,9 +71,14 @@ console.log('==============================');
 for (const item of fruits) {
     console.log(item);
 }
+// 출력: apple / banana / melon
 fruits.forEach(function (item, index) {
     console.log(`index : ${index}, item : ${item}`);
 });
+// 출력: 
+// index : 0, item : apple
+// index : 1, item : banana
+// index : 2, item : melon
 
 console.log('==============================');
 

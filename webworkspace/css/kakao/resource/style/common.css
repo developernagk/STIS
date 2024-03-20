@@ -178,6 +178,7 @@ body {
     width: 316px;
     height: 76px;
     background-color: rgba(240, 240, 240, 1);
+    color: rgba(0, 0, 0, 1);
     font-size: 24px;
     letter-spacing: -0.4px;
     border-radius: 38px;
@@ -186,8 +187,20 @@ body {
     gap: 4px;
 }
 
+.more-button:link{
+    color: rgba(0, 0, 0, 1);
+}
+
+.more-button:visited{
+    color: rgba(0, 0, 0, 1);
+}
+
 .more-button:hover{
     cursor: pointer;
+}
+
+.more-button:active{
+    color: rgba(0, 0, 0, 1);
 }
 
 .round-black {

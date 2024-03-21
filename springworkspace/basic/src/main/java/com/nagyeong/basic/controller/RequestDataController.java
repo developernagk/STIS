@@ -59,7 +59,7 @@ public class RequestDataController {
 
     //!***** 주의
     // URL 패턴으로 데이터를 받아오는 방식을 썼을 때 겹치는 패턴이 존재하는지 잘 확인해야 함
-    // /{value}/get 와 /get/{value} 에서 value 이름이 같을 경우 error code: 500 발생
+    // /{value}/get 와 /get/{value} 에서 value 이름이 get과 같을 경우 error code: 500 발생
     @GetMapping("/{value}/get")
     public String getPathVariable1(
         @PathVariable("value") String value

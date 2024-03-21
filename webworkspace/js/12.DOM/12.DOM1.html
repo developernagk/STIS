@@ -35,8 +35,8 @@
         */
         const userIdInputElement = document.getElementById('user-id');
         const userPwInputElement = document.getElementById('user-pw');
-        console.log(userIdInputElement);
-        console.log(userPwInputElement);
+        console.log(userIdInputElement); // 출력: <input id="user-id" name="user-id" class="custom-input" type="text">
+        console.log(userPwInputElement); // 출력: <input id="user-pw" name="user-pw" class="custom-input" type="password">
 
 
         console.log('==============================');
@@ -49,7 +49,7 @@
             - IE8 이상에서만 사용 가능
         */
         const signInTitleElement = document.querySelector('body > div > h1');
-        console.log(signInTitleElement);
+        console.log(signInTitleElement); // 출력: <h1 class="title">로그인</h1>
 
 
         console.log('==============================');
@@ -69,7 +69,9 @@
         for (const element of customInputElements) {
             console.log(element);
         }
-        
+        // 출력: <input id="user-id" name="user-id" class="custom-input" type="text">
+        // <input id="user-pw" name="user-pw" class="custom-input" type="password">
+
 
         console.log('==============================');
 
@@ -83,6 +85,9 @@
         for (const element of inputElements) {
             console.log(element);
         }
+        // 출력: <input type="date">
+        // <input id="user-id" name="user-id" class="custom-input" type="text">
+        // <input id="user-pw" name="user-pw" class="custom-input" type="password">
         
 
         console.log('==============================');
@@ -97,7 +102,9 @@
         for (const element of formInputElements) {
             console.log(element);
         }
-        
+        // 출력: <input id="user-id" name="user-id" class="custom-input" type="text">
+        // <input id="user-pw" name="user-pw" class="custom-input" type="password">
+
 
         console.log('==============================');
 
@@ -112,7 +119,7 @@
             - 모든 브라우저에서 동작
         */
         console.log(userIdInputElement.parentNode);
-        
+        // 출력: <form id="sign-in-form">…</form>
 
         console.log('==============================');
 
@@ -125,6 +132,8 @@
         const signInFormElement = document.getElementById('sign-in-form');
         console.log(signInFormElement.firstElementChild);
         console.log(signInFormElement.lastElementChild);
+        // 출력: <input id="user-id" name="user-id" class="custom-input" type="text">
+        // <button class="custom-button" type="submit">로그인</button>
 
 
         console.log('==============================');

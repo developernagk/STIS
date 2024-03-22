@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,6 +22,7 @@
             const age = ageInputElement.value;
 
             // console.log(name, age);
+            // URL에 ${}이 들어갈 경우 백틱(`)으로 묶어줌
             fetch(`http://localhost:4000/request-data/path-variable/${age}/${name}`, {
                 method: 'DELETE'
             })

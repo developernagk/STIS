@@ -31,7 +31,7 @@ import lombok.RequiredArgsConstructor;
 public class BasicController {
     
     // final로 선언되지 않은 것은 필드의 값을 변경할 수 있음(가변성)
-    // 필드에 직접 선언
+    // 필드에 직접 의존성 주입(@Autowired를 써줄 필요 X)
     // private BasicService service;
 
     // 의존성 역전(DI) : 
@@ -53,7 +53,7 @@ public class BasicController {
     // 의존성 주입 시 클래스로 직접 참조변수를 만들지 않고 인터페이스로 간접적으로 만드는 이유
     // : 고수준의 모듈에서 저수준의 모듈을 직접 참조하지 않고 추상화를 통해 간접 참조함으로써 각 모듈 간의 결합도를 낮춤
     // -> 코드의 재사용성 향상, 유지보수성 향상
-    // 상수(초기화 필수)로 선언된 것으로 변경 불가능(setter 사용 불가능)(필드에 직접 선언)
+    // 상수(초기화 필수)로 선언된 것으로 변경 불가능(setter 사용 불가능)
     private final BasicService service;
 
     // HTTP GET localhost:4000/main/

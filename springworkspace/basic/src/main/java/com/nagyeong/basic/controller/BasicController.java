@@ -1,5 +1,6 @@
 package com.nagyeong.basic.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -13,6 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 // - 클라이언트의 요청을 받고 해당 요청에 대한 응답을 클라이언트에게 돌려주는 영역
 // - 각 요청에 해당하는 URL 메서드를 작성하는 영역
 
+import com.nagyeong.basic.service.BasicService;
+
+import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
+
 // @RestController : JSON 형태의 Response Body를 반환하는 Controller임을 명시
 // @RestController = @Controller + @ResponseBody
 @RestController
@@ -20,7 +26,19 @@ import org.springframework.web.bind.annotation.RestController;
 // @RequestMapping(value="/main", method={RequestMethod.GET})
 // HTTP GET localhost:4000/main/**
 @RequestMapping("/main")
+@RequiredArgsConstructor
 public class BasicController {
+    
+    // private BasicService service;
+
+    // @RestController를 쓰면 클래스를 생성함과 동시에 생성자를 만듦
+    // @Autowired : 생성자를 쓰면 안 적어줘도 됨(적는 걸 권장)
+    // public BasicController(BasicService service) {
+    //     this.service = service;
+    // }
+
+    // 상수(초기화 필수)로 선언된 것으로 변경 불가능(setter 사용 불가능)
+    private final BasicService service;
 
     // HTTP GET localhost:4000/main/
     @RequestMapping(value="/", method={RequestMethod.GET})

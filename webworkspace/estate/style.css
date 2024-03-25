@@ -1,5 +1,20 @@
+@font-face {
+  font-family: 'Pretendard';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
 * {
   margin: 0px;
+}
+
+.h1 {
+  font-family: Pretendard;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 173%;
 }
 
 #sign-in-wrapper {
@@ -16,12 +31,40 @@
 }
 
 .sign-in-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   flex-grow: 1;
   min-width: 610px;
 }
 
 .sign-in-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
   width: 380px;
   height: 523px;
-  background-color: lightsteelblue;
+}
+
+.sign-in-title {
+  color: rgba(64, 64, 64, 1);
+}
+
+.sign-in-contents {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.sign-in-input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.input-box {
+  width: 100%;
+  
 }

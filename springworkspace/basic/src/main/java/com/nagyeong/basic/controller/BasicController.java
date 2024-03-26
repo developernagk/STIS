@@ -30,6 +30,8 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class BasicController {
     
+    // final로 선언되지 않은 것은 필드의 값을 변경할 수 있음(가변성)
+    // 필드에 직접 의존성 주입(@Autowired를 써줄 필요 X)
     // private BasicService service;
 
     // 의존성 역전(DI) : 
@@ -43,6 +45,7 @@ public class BasicController {
 
     // @Autowired
     // @RestController를 쓰면 클래스를 생성함과 동시에 생성자를 만듦
+    // 생성자 주입 방식(권장)
     // public BasicController(BasicService service) {
     //     this.service = service;
     // }

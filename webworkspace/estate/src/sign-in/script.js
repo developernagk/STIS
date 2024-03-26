@@ -5,10 +5,11 @@ function onSignInButtonClickHandler (event) {
     const id = document.getElementById('id').value;
     const password = document.getElementById('password').value;
 
+    const signInMessageElement = document.getElementById('sign-in-message');
     if (id === ID && password === PASSWORD) {
         alert('로그인 성공!')
+        signInMessageElement.textContent = '';
     } else {
-        const signInMessageElement = document.getElementById('sign-in-message');
         signInMessageElement.textContent = '로그인 정보가 일치하지 않습니다.'
     }
 }
@@ -16,7 +17,6 @@ function onSignInButtonClickHandler (event) {
 function onSignUpLinkClickHandler (event) {
     window.location.href = 'https://google.com';
 }
-
 const signUpLinkElement = documet.getElementById('sign-up-link');
 // 콜백함수로 전달된 것으로 'click' 시 호출됨
 signUpLinkElement.addEventListner('click', onSignUpLinkClickHandler);
@@ -25,14 +25,12 @@ signUpLinkElement.addEventListner('click', onSignUpLinkClickHandler);
 function onKakaoSingUpClickHandler (event) {
     window.location.href = 'https://developers.kakao.com/';
 }
-
-const kakaoSingUpLinkElement = document.getElementById('kakao-sign-up-link');
+const kakaoSingUpLinkElement = document.getElementById('kakao-sign-in-link');
 kakaoSingUpLinkElement.addEventListener('click', onKakaoSingUpClickHandler);
 
 // https://developers.naver.com/main/
 function onNaverSingUpClickHandler (event) {
     window.location.href = 'https://developers.naver.com/main/';
 }
-
-const naverSingUpLinkElement = document.getElementById('naver-sign-up-link');
+const naverSingUpLinkElement = document.getElementById('naver-sign-in-link');
 naverSingUpLinkElement.addEventListener('click', onNaverSingUpClickHandler);

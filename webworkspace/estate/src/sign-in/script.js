@@ -15,22 +15,8 @@ function onSignInButtonClickHandler (event) {
 }
 
 function onSignUpLinkClickHandler (event) {
-    window.location.href = 'https://google.com';
+    window.location.href = '../sign-up';
 }
 const signUpLinkElement = documet.getElementById('sign-up-link');
 // 콜백함수로 전달된 것으로 'click' 시 호출됨
 signUpLinkElement.addEventListner('click', onSignUpLinkClickHandler);
-
-// https://developers.kakao.com/
-function onKakaoSingUpClickHandler (event) {
-    window.location.href = 'https://developers.kakao.com/';
-}
-const kakaoSingUpLinkElement = document.getElementById('kakao-sign-in-link');
-kakaoSingUpLinkElement.addEventListener('click', onKakaoSingUpClickHandler);
-
-// https://developers.naver.com/main/
-function onNaverSingUpClickHandler (event) {
-    window.location.href = 'https://developers.naver.com/main/';
-}
-const naverSingUpLinkElement = document.getElementById('naver-sign-in-link');
-naverSingUpLinkElement.addEventListener('click', onNaverSingUpClickHandler);

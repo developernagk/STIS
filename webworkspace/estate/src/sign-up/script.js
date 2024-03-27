@@ -80,7 +80,7 @@ authNumberInputElement.addEventListener('input', function (event) {
 function onCheckDuplicateClickHandler (event) {
   if (!id) return;
 
-  const isDuplicate = id === ID;
+  isDuplicate = id === ID;
 
   if (isDuplicate) {
     idMessageElement.className = 'input-message error';

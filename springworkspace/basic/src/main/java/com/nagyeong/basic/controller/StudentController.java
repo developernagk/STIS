@@ -1,5 +1,6 @@
 package com.nagyeong.basic.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -10,19 +11,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nagyeong.basic.dto.request.student.PostStudentRequestDto;
+import com.nagyeong.basic.service.StudentService;
 
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/student")
+@RequiredArgsConstructor
 public class StudentController {
+
+  private final StudentService studentService;
 
   // CREATE
   @PostMapping("/")
-  public ResponseEntity<?> postStudent(
+  public ResponseEntity<String> postStudent(
     @RequestBody @Valid PostStudentRequestDto requestBody
   ) {
-    return null;
+    ResponseEntity<String> response = studentService.postStudent(requestBody);
+    return response;
   }
   
   // UPDATE

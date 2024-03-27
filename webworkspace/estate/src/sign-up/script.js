@@ -57,8 +57,9 @@ function onCheckDuplicateClickHandler (event) {
 function onCheckEmailClickHandler (event) {
   const emailValue = emailInputElement.value;
 
-  const emailReg = /^[a-zA-Z0-9]*@([-.]?[a-zA-Z0-9])*\\.[a-zA-Z]{2,4}$/;
+  const emailReg = /^[a-zA-Z0-9]*@([-.]?[a-zA-Z0-9])*\.[a-zA-Z]{2,4}$/;
   const isEmail = emailReg.test(emailValue);
+  console.log(emailValue);
   if (!isEmail) {
     emailMessageElement.className = 'input-message error';
     emailMessageElement.textContent = '이메일 형식이 아닙니다.';

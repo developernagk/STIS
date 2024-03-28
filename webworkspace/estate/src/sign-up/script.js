@@ -27,6 +27,7 @@ const signInLinkElement = document.getElementById('sign-in-link');
 
 function onIdInputHandler (event) {
   id = event.target.value;
+
   isDuplicate = true;
   
   if (id) checkDuplicateButtonElement.className = 'input-primary-button';
@@ -35,6 +36,7 @@ function onIdInputHandler (event) {
 
 function onPasswordInputHandler (event) {
   password = event.target.value;
+
   const passwordReg = /^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]{8,13}$/;
   isPasswordPattern = passwordReg.test(password);
 
@@ -50,6 +52,7 @@ function onPasswordInputHandler (event) {
 
 function onPasswordCheckInputHandler (event) {
   passwordCheck = event.target.value;
+  
   isEqualPassword = password === passwordCheck;
 
   if (!isEqualPassword) {
@@ -121,6 +124,7 @@ function onCheckEmailClickHandler (event) {
 
   const emailReg = /^[a-zA-Z0-9]*@([-.]?[a-zA-Z0-9])*\.[a-zA-Z]{2,4}$/;
   isEmail = emailReg.test(email);
+
   if (!isEmail) {
     emailMessageElement.className = 'input-message error';
     emailMessageElement.textContent = '이메일 형식이 아닙니다.';
@@ -128,6 +132,7 @@ function onCheckEmailClickHandler (event) {
   }
 
   isDuplicateEmail = email === EMAIL;
+
   if (isDuplicateEmail) {
     emailMessageElement.className = 'input-message error';
     emailMessageElement.textContent = '이미 사용중인 이메일 입니다.';
@@ -142,6 +147,7 @@ function onCheckAuthNumberClickHandler (event) {
   if (!authNumber) return;
 
   isEqualAuthNumber = authNumber === AUTH_NUMBER;
+
   if (!isEqualAuthNumber) {
     authNumberMessageElement.className = 'input-message error';
     authNumberMessageElement.textContent = '인증번호가 일치하지 않습니다.'

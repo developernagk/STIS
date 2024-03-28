@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.nagyeong.basic.dto.request.student.PatchStudentRequestDto;
 import com.nagyeong.basic.dto.request.student.PostStudentRequestDto;
 import com.nagyeong.basic.service.StudentService;
 
@@ -34,8 +35,11 @@ public class StudentController {
   
   // UPDATE
   @PatchMapping("/")
-  public ResponseEntity<?> patchStudent() {
-    return null;
+  public ResponseEntity<String> patchStudent(
+    @RequestBody @Valid PatchStudentRequestDto requestBody
+    ) {
+      ResponseEntity<String> response = studentService.patchStudent(requestBody);
+    return response;
   }
 
   // DELETE

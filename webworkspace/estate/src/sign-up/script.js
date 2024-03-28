@@ -60,7 +60,7 @@ function onPasswordCheckInputHandler (event) {
 
   passwordCheckMessageElement.className = 'input-message';
   passwordCheckMessageElement.textContent = '';
-} 
+}
 
 function onEmailInputHandler (event) {
   email = event.target.value;

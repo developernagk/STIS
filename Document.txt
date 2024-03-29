@@ -4,3 +4,4 @@ JavaScript : https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide
 mdn(웹 개발 전반적인 부분) : https://developer.mozilla.org/ko/
 mdn - HTML, CSS, JavaScript, Web API, ...
 Spring boot : https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#io
+Spring Data JPA : https://spring.io/projects/spring-data-jpa

@@ -56,6 +56,7 @@ public class StudentServiceImplement implements StudentService {
 
   @Override
   public ResponseEntity<String> deleteStudent(Integer studentNumber) {
+    // DELETE(SQL : DELETE)
 
     studentRepository.deleteById(studentNumber);
 

@@ -15,7 +15,8 @@ import lombok.Setter;
 public class CommentEntity {
   @Id
   private Integer commentNumber;
-  private String contents;
-  private String userEmail;
   private Integer boardNumber;
+  private String userEmail;
+  private String contents;
+  private String writeDatetime;
 }

@@ -75,34 +75,117 @@ class Sample1 {
     }
 }
 
+const sample1Instance = new Sample1('public 필드', 'private 필드');
+console.log(sample1Instance); // 출력: Sample1 { publicField: 'public 필드' }
+// console.log(sample1Instance.#privateField);
+console.log(sample1Instance.staticPublicField); // 출력: undefined
+console.log(Sample1.staticPublicField); // 출력: 정적 public 필드
 
 console.log('==================================================');
 
 /*
     getter, setter : 
-    - 
-    - 
+    - getter : private 멤버 변수의 값을 얻을 수 있는 캡슐화 메서드
+    - setter : private 멤버 변수의 값을 할당할 수 있는 캡슐화 메서드
 */
+class Sample2 {
+    #privateField;
 
+    constructor (privateField) {
+        this.#privateField = privateField;
+    }
 
+    get privateField() {
+        return this.#privateField;
+    }
+
+    set privateField(privateField) {
+        this.#privateField = privateField;
+    }
+}
+
+const sample2Instance = new Sample2('private 필드');
+// getter, setter 메서드라고 () 붙여줄 필요없이 속성 접근하듯이 사용
+console.log(sample2Instance.privateField); // 출력: private 필드
+sample2Instance.privateField = '변경 private 필드';
+console.log(sample2Instance.privateField); // 출력: 변경 private 필드
 
 console.log('==================================================');
 
 /*
     인스턴스 메서드와 정적 메서드 : 
-    - 
-    - 
+    - 클래스 내부에 function 키워드를 제거한 함수를 작성하여 인스턴스 메서드 선언 가능
+    - static 키워드를 추가하여 정적 메서드 선언 가능
 */
+class Sample3 {
+    instanceMethod () {
+        console.log('인스턴스 메서드');
+    }
 
+    static staticMethod () {
+        console.log('정적 메서드');
+    }
+}
 
+const sample3Instance = new Sample3();
+sample3Instance.instanceMethod(); // 출력: 인스턴스 메서드
+// sample3Instance.staticMethod(); TypeError: sample3Instance.staticMethod is not a function
+Sample3.staticMethod(); // 출력: 정적 메서드
 
 console.log('==================================================');
 
 /*
     클래스 상속 : 
-    - 
-    - 
-    - 
+    - extends 키워드를 사용하여 클래스 상속 가능
+    - 메서드 오버라이딩 가능
+    - super 키워드로 부모 클래스 참조할 수 있음
 */
+class ParentClass {
+    parentField;
 
+    constructor (parentField) {
+        this.parentField = parentField;
+    }
 
+    parentMethod () {
+        console.log('부모 메서드');
+    }
+}
+
+class Child1Class extends ParentClass {
+    child1Field;
+
+    constructor () {
+        super('부모 필드');
+        this.child1Field = '자식1 필드';
+    }
+
+    child1Method () {
+        console.log('자식1 메서드');
+        // console.log(this.child1Field);
+    }
+}
+
+class Child2Class extends ParentClass {
+    child2Field;
+
+    constructor () {
+        super('부모 필드');
+        this.child2Field = '자식2 필드';
+    }
+
+    parentMethod () {
+        console.log('자식2 메서드');
+    }
+}
+
+const child1Instance = new Child1Class();
+console.log(child1Instance.parentField); // 출력: 부모 필드
+console.log(child1Instance.child1Field); // 출력: 자식1 필드
+child1Instance.parentMethod(); // 출력: 부모 메서드
+child1Instance.child1Method(); // 출력: 자식1 메서드
+
+const child2Instance = new Child2Class();
+console.log(child2Instance.parentField); // 출력: 부모 필드
+console.log(child2Instance.child2Field); // 출력: 자식2 필드
+child2Instance.parentMethod(); // 출력: 자식2 메서드

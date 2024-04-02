@@ -1,7 +1,8 @@
 Python : https://docs.python.org/ko/3/
 Java : https://docs.oracle.com/en/java/
 JavaScript : https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide
-mdn(웹 개발 전반적인 부분) : https://developer.mozilla.org/ko/
-mdn - HTML, CSS, JavaScript, Web API, ...
+TypeScript : https://www.typescriptlang.org/docs/
+mdn(HTML, CSS, JavaScript, Web API, ...) : https://developer.mozilla.org/ko/
 Spring boot : https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#io
 Spring Data JPA : https://spring.io/projects/spring-data-jpa
+

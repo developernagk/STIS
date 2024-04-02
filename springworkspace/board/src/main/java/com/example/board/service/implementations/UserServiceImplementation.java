@@ -27,7 +27,8 @@ public class UserServiceImplementation implements UserService {
       return ResponseDto.databaseError();
     }
 
-    return GetUserResponseDto.success("email@emaail.com", "홍길동", null);
+    // 위에서 return을 해놨기 때문에 컴파일 에러
+    // return GetUserResponseDto.success("email@emaail.com", "홍길동", null);
 
 
   }

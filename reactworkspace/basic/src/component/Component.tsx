@@ -18,3 +18,18 @@ export default function Component() {
     </>
   );
 }
+
+function JsxComponent() {
+  // JSX(TSX)의 규칙
+  // 1. 반드시 하나의 요소를 반환(<div> 요소 혹은 <> 요소)
+  // 2. 모든 태그 닫기
+  // 3. 속성들을 JSX로 지정되어 있는 이름으로 사용해야 함
+  return (
+    <>
+      <h1>첫 번째 페이지입니다.</h1>
+      <div>
+        <img src="https://image.van-go.co.kr/place_main/2022/04/04/12217/035e1737735049018a2ed2964dda596c_750S.jpg" className="image-box" />
+      </div>
+    </>
+  )
+}

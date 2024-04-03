@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import com.example.board.dto.response.ResponseCode;
 import com.example.board.dto.response.ResponseDto;
 import com.example.board.dto.response.ResponseMessage;
+import com.example.board.entity.UserEntity;
 
 import lombok.Getter;
 
@@ -15,15 +16,15 @@ public class GetUserResponseDto extends ResponseDto {
   private String nickName;
   private String profileImage;
 
-  private GetUserResponseDto(String email, String nickName, String profileImage) {
+  private GetUserResponseDto(UserEntity userEntity) {
     super(ResponseCode.SUCCESS, ResponseMessage.SUCCESS);
-    this.email = email;
-    this.nickName = nickName;
-    this.profileImage = profileImage;
+    this.email = userEntity.getEmail();
+    this.nickName = userEntity.getNickname();
+    this.profileImage = userEntity.getProfileImageUrl();
   }
 
-  public static ResponseEntity<GetUserResponseDto> success(String email, String nickName, String profileImage) {
-    GetUserResponseDto body = new GetUserResponseDto(email, nickName, profileImage);
+  public static ResponseEntity<GetUserResponseDto> success(UserEntity userEntity) {
+    GetUserResponseDto body = new GetUserResponseDto(userEntity);
     return ResponseEntity.status(HttpStatus.OK).body(body);
   }
   

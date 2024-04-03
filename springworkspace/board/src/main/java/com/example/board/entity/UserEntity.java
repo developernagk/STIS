@@ -20,5 +20,5 @@ public class UserEntity {
   private String telNumber;
   private String address;
   private String addressDetail;
-  private String profileImage;
+  private String profileImageUrl;
 }

@@ -39,7 +39,7 @@ public class AuthServiceImplementaion implements AuthService {
     // 3. 입력 받은 휴대전화번호가 유저 테이블에 존재하는지 조회
     // telNumber -> (true, false)
     String telNumber = dto.getTelNumber();
-    boolean isExistTelNumber = userRepository.esistByTelNumber(telNumber);
+    boolean isExistTelNumber = userRepository.existsByTelNumber(telNumber);
     
     // 3-1. 3에 대한 조회 결과가 true, 중복된 휴대전화번호 응답 처리
     if (isExistTelNumber) return ResponseDto.duplicateTelNumber();

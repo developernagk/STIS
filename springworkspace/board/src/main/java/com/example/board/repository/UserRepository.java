@@ -11,6 +11,6 @@ import com.example.board.entity.UserEntity;
 public interface UserRepository extends JpaRepository<UserEntity, String> {
   boolean existsByEmail(String email);
   boolean existsByNickname(String nickname);
-  boolean esistByTelNumber(String telNumber);
+  boolean existsByTelNumber(String telNumber);
   UserEntity findByEmail(String email);
 }

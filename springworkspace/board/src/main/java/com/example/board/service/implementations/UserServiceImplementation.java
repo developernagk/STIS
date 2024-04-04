@@ -48,11 +48,24 @@ public class UserServiceImplementation implements UserService {
     try {
       // 1. 입력 받은 이메일이 유저 테이블에 존재하는지 조회
       // email -> (true, false)
+      String email = dto.getEmail();
+      UserEntity userEntity =  userRepository.findByEmail(email);
+      if (userEntity == null) return ResponseDto.notExistUser();
 
       // 2. 
+      String nickname = dto.getNickname();
+      boolean isExistNickname = userRepository.existsByNickname(nickname);
+      if (isExistNickname) return ResponseDto.duplicateNickname();
+
+      userEntity.setNickname(nickname);
+      userRepository.save(userEntity);
+
+      return ResponseDto.success();
 
     } catch (Exception exception) {
-
+      // 데이터베이스 작업 중에 발생하는 예외 데이터베이스 에러 처리
+      exception.printStackTrace();
+      return ResponseDto.databaseError();
     }
   }
   

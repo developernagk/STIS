@@ -3,6 +3,7 @@ package com.example.board.service.implementations;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.example.board.dto.request.user.UpdateNicknameDto;
 import com.example.board.dto.response.ResponseDto;
 import com.example.board.dto.response.user.GetUserResponseDto;
 import com.example.board.entity.UserEntity;
@@ -40,6 +41,19 @@ public class UserServiceImplementation implements UserService {
       return ResponseDto.databaseError();
     }
 
+  }
+
+  @Override
+  public ResponseEntity<ResponseDto> updateUser(UpdateNicknameDto dto) {
+    try {
+      // 1. 입력 받은 이메일이 유저 테이블에 존재하는지 조회
+      // email -> (true, false)
+
+      // 2. 
+
+    } catch (Exception exception) {
+
+    }
   }
   
 }

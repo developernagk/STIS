@@ -14,7 +14,9 @@ export default function CurlyBraces() {
   // 1) JSX에서는 인라인 스타일을 문자열로 표현 X, 객체로 표현
 
   return (
-    <div style={{color: 'red'}}>{10 + 20} {title}</div>
+    <div style={{color: 'red'}}>
+      {10 + 20} {title}
+    </div>
   );
 
 }

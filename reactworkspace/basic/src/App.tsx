@@ -78,11 +78,11 @@ function App() {
       {/* <Component /> */}
       {/* <Sample /> */}
       {/* <SignInContainer /> */}
-      {/* <SignUpContainer /> */}
+      <SignUpContainer />
       {/* <CurlyBraces /> */}
       {/* <Properties /> */}
       {/* <ConditionalRendering /> */}
-      <ListRendering />
+      {/* <ListRendering /> */}
     </div>
   );
 }

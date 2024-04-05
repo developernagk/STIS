@@ -4,7 +4,7 @@ interface Props {
   label: string;
   type: 'text' | 'password';
   placeholder: string;
-  check: string
+  check?: string;
 }
 
 export default function InputBox({label, type, placeholder, check}: Props) {

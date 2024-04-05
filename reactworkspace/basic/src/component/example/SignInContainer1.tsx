@@ -8,7 +8,7 @@ import './common.css'
 import './style.css'
 
 
-export default function SignInContainer() {
+export default function SignInContainer1() {
   return (
     <>
       <InputBox label='아이디' type='text' placeholder='아이디를 입력하세요.' />

@@ -44,6 +44,7 @@ function SignIn ({ onLinkClickHandler }: Props) {
   const onPasswordChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
   };
+
   const onSignInButtonClickHandler = () => {
     alert(`아이디: ${id} / 비밀번호: ${password}`);
     setId('');
@@ -68,25 +69,75 @@ function SignIn ({ onLinkClickHandler }: Props) {
 
 function SignUp ({ onLinkClickHandler }: Props) {
 
+  //   state   //
   const [id, setId] = useState<string>('');
-  const [idButtonStatus, setIdButtonStatus] = useState<boolean>(false);
+  const [password, setPassword] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
+  const [authNumber, setAuthNumber] = useState<string>('');
 
+  const [idButtonStatus, setIdButtonStatus] = useState<boolean>(false);
+  const [emailButtonStatus, setEmailButtonStatus] = useState<boolean>(false);
+  const [authNumberButtonStatus, setAuthNumberBottonStatus] = useState<boolean>(false);
+
+  //   event handler   //
   const onIdChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
     setId(value);
     setIdButtonStatus(value !== '');
   };
 
+  const onIdButtonClickHandler = () => {
+    if (!idButtonStatus) return;
+    alert(id);
+  };
+
+  const onPasswordChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
+    setPassword(event.target.value);
+  };
+
+  const onEmailChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.target;
+    setEmail(value);
+    setEmailButtonStatus(value !== '');
+  };
+
+  const onEmailButtonClickHandler = () => {
+    if (!emailButtonStatus) return;
+    alert(email);
+  }
+
+  const onAuthNumberChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.target;
+    setAuthNumber(value);
+    setAuthNumberBottonStatus(value !== '');
+  }
+
+  const onAuthNumberButtonClickHandler = () => {
+    if (!authNumberButtonStatus) return;
+    alert(authNumber);
+  }
+
   const onSignUpButtonClickHandler = () => {
 
   };
 
+  //   render   //
   return (
     <div className="authentication-contents">
       <SnsContainer title="SNS 회원가입" />
       <div className="short-divider"></div>
       <div className="authentication-input-container">
-        <InputBox label="아이디" type="text" value={id} placeholder="아이디를 입력해주세요." onChangeHandler={onIdChangeHandler} buttonTitle="중복 확인" buttonStatus={idButtonStatus} />
+
+        <InputBox label="아이디" type="text" value={id} placeholder="아이디를 입력해주세요." onChangeHandler={onIdChangeHandler} buttonTitle="중복 확인" buttonStatus={idButtonStatus} onButtonClickHandler={onIdButtonClickHandler} />
+
+        <InputBox label="비밀번호" type="password" value={password} placeholder="비밀번호를 입력해주세요." onChangeHandler={onPasswordChangeHandler} />
+
+        <InputBox label="비밀번호 확인" type="password" value={password} placeholder="비밀번호를 입력해주세요." onChangeHandler={onPasswordChangeHandler} />
+
+        <InputBox label="이메일" type="text" value={email} placeholder="이메일 주소를 입력해주세요." onChangeHandler={onEmailChangeHandler} buttonTitle="이메일 인증" buttonStatus={emailButtonStatus} onButtonClickHandler={onEmailButtonClickHandler} />
+
+        <InputBox label="인증번호" type="text" value={authNumber} placeholder="인증번호 4자리를 입력해주세요." onChangeHandler={onAuthNumberChangeHandler} buttonTitle="인증 확인" buttonStatus={authNumberButtonStatus} onButtonClickHandler={onAuthNumberButtonClickHandler} />
+
       </div>
       <div className="authentication-button-container">
         <div className="primary-button full-width" onClick={onSignUpButtonClickHandler}>회원가입</div>

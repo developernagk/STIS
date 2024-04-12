@@ -29,7 +29,7 @@ public class JwtProvider {
   public String create(String principle) {
     // 만료 시간 생성
     Date expiredDate = Date.from(Instant.now().plus(4, ChronoUnit.HOURS));
-    // 비밀키 생성(아래와 같이 작성해두면 안 됨)
+    // 비밀키 생성(아래와 같이 직접 작성해두면 안 됨)
     Key key = Keys.hmacShaKeyFor("qwerasdfzxcvqwerasdfzxcvqwerasdfzxcvqwerasdfzxcv".getBytes(StandardCharsets.UTF_8));
 
     // JWT 생성

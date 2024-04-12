@@ -6,8 +6,10 @@ import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
@@ -24,13 +26,16 @@ import io.jsonwebtoken.security.Keys;
 // @Comonent로 스프링에게 권한 양도
 @Component
 public class JwtProvider {
+
+  @Value("${jwt.secret-key}")
+  private String secretKey;
   
   // JWT 생성
   public String create(String principle) {
     // 만료 시간 생성
     Date expiredDate = Date.from(Instant.now().plus(4, ChronoUnit.HOURS));
     // 비밀키 생성(아래와 같이 직접 작성해두면 안 됨)
-    Key key = Keys.hmacShaKeyFor("qwerasdfzxcvqwerasdfzxcvqwerasdfzxcvqwerasdfzxcv".getBytes(StandardCharsets.UTF_8));
+    Key key = Keys.hmacShaKeyFor(secretKey.getBytes(StandardCharsets.UTF_8));
 
     // JWT 생성
     String jwt = Jwts.builder()
@@ -47,6 +52,26 @@ public class JwtProvider {
       .compact();
 
     return jwt;
+  }
+
+  public String validation(String jwt) {
+    // jwt 검증 결과로 나타나는 페이로드가 저장될 변수
+    Claims claims = null;
+    // 비밀키 생성
+    Key key = Keys.hmacShaKeyFor(secretKey.getBytes(StandardCharsets.UTF_8));
+
+    try {
+      // 비밀키로 jwt 복호화 작업
+      claims = Jwts.parserBuilder()
+        .setSigningKey(key)
+        .build()
+        .parseClaimsJws(jwt)
+        .getBody();
+    } catch (Exception exception) {
+      exception.printStackTrace();
+      return null;
+    }
+    return claims.getSubject();
   }
 
 }

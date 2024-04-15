@@ -71,6 +71,8 @@ public class WebSecurityConfig {
       // - 클라이언트(사용자)가 자신의 의도와는 무관한 공격 행위를 하는 것
       // SQL Injection :
       // - 공격자가 데이터베이스의 쿼리문을 직접 조작하여 데이터를 탈취하는 공격
+      // XSS(Cross-Site Scripting) :
+      // - 공격자가 웹 브라우저에 악성 스크립트를 작성하여 실행시키는 공격
       .csrf(CsrfConfigurer::disable);
 
     // 우리가 생성한 jwtAuthenticationFilter를 UsernamePasswordAuthenticationFilter 이전에 등록

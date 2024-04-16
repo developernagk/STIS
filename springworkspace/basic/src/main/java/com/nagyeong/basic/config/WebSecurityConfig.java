@@ -1,5 +1,7 @@
 package com.nagyeong.basic.config;
 
+import java.io.IOException;
+
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,6 +11,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configurers.CsrfConfigurer;
 import org.springframework.security.config.annotation.web.configurers.HttpBasicConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
@@ -17,6 +21,9 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import com.nagyeong.basic.filter.JwtAuthenticationFilter;
 
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 
 @Configuration
@@ -91,6 +98,10 @@ public class WebSecurityConfig {
         .requestMatchers("/student", "/student/**").hasRole("STUDENT")
         // 인증된 사용자는 모두 접근을 허용
         .anyRequest().authenticated()
+      )
+      // 인증 과정 중에 발생한 예외 처리
+      .exceptionHandling(exceptionHandling -> exceptionHandling
+      .authenticationEntryPoint(new FailedAuthenticationEntryPoint())
       );
 
     // 우리가 생성한 jwtAuthenticationFilter를 UsernamePasswordAuthenticationFilter 이전에 등록
@@ -112,4 +123,18 @@ public class WebSecurityConfig {
     return source;
   }
 
+}
+
+// 인증 실패 처리를 위한 커스텀 예외(AuthenticationEntryPoint 인터페이스 구현)
+class FailedAuthenticationEntryPoint implements AuthenticationEntryPoint {
+
+  @Override
+  public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException, ServletException {
+      
+    authException.printStackTrace();
+
+    response.setContentType("application/json;charset=UTF-8");
+    response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+    response.getWriter().write("{ \"message\": \"인증에 실패했습니다.\" }");
+  }
 }

@@ -19,6 +19,7 @@ function usePagenation(totalList: string[]) {
   const COUNT_PER_PAGE = 5;
   const COUNT_PER_SECTION = 10;
 
+  //   function   //
   const setNextSection = () => {
     if (section === totalSectionCount.current) return;
     setSection(section + 1);

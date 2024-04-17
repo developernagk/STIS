@@ -9,6 +9,8 @@ import { create } from 'zustand';
 // - zustand는 단순한 코드 구조와 학습 곡선이 매우 낮음 - useState 사용 수준의 학습 곡선을 요구
 // - Redux, MobX와 같은 타 상태 관리 라이브러리들에 비해 가벼움 - 빌드할 때 패키징 속도 향상 / 빌드 후 번들(파일)의 크기가 작아짐
 
+// npm i zustand
+
 // zustand를 이용한 글로벌 상태 선언 방법
 // 1. zustand의 create 함수를 사용하여 store를 생성
 // store : 상태와 상태 관리 로직을 하나로 묶은 객체
@@ -65,7 +67,7 @@ export default function ZustandLibrary() {
   return (
     <div>
       <div>
-        <a href="http://localhost:3000">홈으로</a>
+        <a href="http://localhost:3000/router">홈으로</a>
         <h4>useState 방식 : {normal}</h4>
         <button onClick={decreaseNormal}>-</button>
         <button onClick={increaseNormal}>+</button>

@@ -47,7 +47,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             return;
           }
           // JWT 검증
-          String userId = jwtProvider.Validate(token);
+          String userId = jwtProvider.validate(token);
           if (userId == null) {
             filterChain.doFilter(request, response);
             return;

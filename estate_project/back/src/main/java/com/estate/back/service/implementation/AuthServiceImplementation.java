@@ -3,8 +3,13 @@ package com.estate.back.service.implementation;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.estate.back.dto.request.auth.EmailAuthCheckRequestDto;
+import com.estate.back.dto.request.auth.EmailAuthRequestDto;
 import com.estate.back.dto.request.auth.IdCheckRequestDto;
+import com.estate.back.dto.request.auth.SignInRequestDto;
+import com.estate.back.dto.request.auth.SignUpRequestDto;
 import com.estate.back.dto.response.ResponseDto;
+import com.estate.back.dto.response.auth.SignInResponseDto;
 import com.estate.back.repository.UserRepository;
 import com.estate.back.service.AuthService;
 
@@ -28,6 +33,26 @@ public class AuthServiceImplementation implements AuthService {
       return ResponseDto.databaseError();
     }
     return ResponseDto.success();
+  }
+
+  @Override
+  public ResponseEntity<? super SignInResponseDto> signIn(SignInRequestDto dto) {
+    return null;
+  }
+
+  @Override
+  public ResponseEntity<ResponseDto> emailAuth(EmailAuthRequestDto dto) {
+    return null;
+  }
+
+  @Override
+  public ResponseEntity<ResponseDto> emailAuthCheck(EmailAuthCheckRequestDto dto) {
+    return null;
+  }
+
+  @Override
+  public ResponseEntity<ResponseDto> signUp(SignUpRequestDto dto) {
+    return null;
   }
   
 }

@@ -79,3 +79,9 @@ CREATE TABLE board (
   CONSTRAINT writer_id_fk 
     FOREIGN KEY (writer_id) REFERENCES user(user_id)
 );
+
+## 개발자 계정 생성
+CREATE USER 'developer'@'%' IDENTIFIED BY 'P!ssw0rd';
+GRANT ALL PRIVILEGES ON estate.* TO 'developer'@'%';
+
+DROP USER 'developer'@'localhost';

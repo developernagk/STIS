@@ -32,7 +32,7 @@ public class MailProvider {
   private final JavaMailSender javaMailSender;
 
   // 메일 전송 메서드
-  public void mailSend(String to, String authNumber) throws MessagingException {
+  public void mailAuthSend(String to, String authNumber) throws MessagingException {
     // 전송할 메시지 객체 생성
     MimeMessage mimeMessage = javaMailSender.createMimeMessage();
     // 메시지 전송자 메일 지정

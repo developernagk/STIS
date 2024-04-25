@@ -10,3 +10,6 @@ SELECT * FROM user WHERE userId = :userId;
 
 SELECT * FROM user WHERE userEmail = :userEmail;
 -> existsByUserEmail(userEmail)
+
+SELECT * FROM user WHERE userEmail = :userEmail AND authNumber = :authNumber;
+-> existsByEmailAndAuthNumber(userEmail, authNumber)

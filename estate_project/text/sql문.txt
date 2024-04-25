@@ -6,4 +6,7 @@ SELECT * FROM user WHERE userId = :userId
 
 AuthServiceImplementation
 SELECT * FROM user WHERE userId = :userId;
--> existedByUserId(userId)
+-> existsByUserId(userId)
+
+SELECT * FROM user WHERE userEmail = :userEmail;
+-> existsByUserEmail(userEmail)

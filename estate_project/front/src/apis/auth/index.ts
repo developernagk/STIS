@@ -6,7 +6,7 @@ import ResponseDto from "../response.dto";
 import { requestErrorHandler, requestHandler } from "..";
 // 파일명이 index.ts일 경우 인터페이스명으로 받아옴
 
-// function : 로그인 API 함수
+//   function : 로그인 API 함수   //
 export const SignInRequest = async (requestBody: SignInRequestDto) => {
   const result = await axios.post(SIGN_IN_REQUEST_URL, requestBody)
     .then(requestHandler<SignInResponseDto>)
@@ -14,7 +14,7 @@ export const SignInRequest = async (requestBody: SignInRequestDto) => {
   return result;
 };
 
-// function : 아이디 중복 확인 API 함수
+//   function : 아이디 중복 확인 API 함수   //
 export const IdCheckRequest = async (requestBody: IdCheckRequestDto) => {
   const result = await axios.post(ID_CHECK_REQUEST_URL, requestBody)
     .then(requestHandler<ResponseDto>)
@@ -22,7 +22,7 @@ export const IdCheckRequest = async (requestBody: IdCheckRequestDto) => {
   return result;
 };
 
-// function : 이메일 인증 API 함수
+//   function : 이메일 인증 API 함수   //
 export const EmailAuthRequest = async (requestBody: EmailAuthRequestDto) => {
   const result = await axios.post(EMAIL_AUTH_REQUEST_URL, requestBody)
     .then(requestHandler<ResponseDto>)
@@ -30,7 +30,7 @@ export const EmailAuthRequest = async (requestBody: EmailAuthRequestDto) => {
   return result;
 };
 
-// function : 이메일 인증 확인 aPI 함수
+//   function : 이메일 인증 확인 aPI 함수   //
 export const EmailAuthCheckRequest = async (requestBody: EmailAuthCheckRequestDto) => {
   const result = await axios.post(EMAIL_AUTH_CHECK_REQUEST_URL, requestBody)
     .then(requestHandler<ResponseDto>)
@@ -38,7 +38,7 @@ export const EmailAuthCheckRequest = async (requestBody: EmailAuthCheckRequestDt
   return result;
 };
 
-// function : 회원가입 API 함수
+//   function : 회원가입 API 함수   //
 export const SignUpRequest = async (requestBody: SignUpRequestDto) => {
   const result = await axios.post(SIGN_UP_REQUEST_URL, requestBody)
     .then(requestHandler<ResponseDto>)

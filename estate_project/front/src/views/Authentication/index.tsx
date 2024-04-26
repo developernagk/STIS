@@ -6,6 +6,7 @@ import SignUpBackground from 'src/assets/image/sign-up-background.png';
 import InputBox from 'src/components/Inputbox';
 import { IdCheckRequestDto } from 'src/apis/auth/dto/request';
 import { IdCheckRequest } from 'src/apis/auth';
+import ResponseDto from 'src/apis/response.dto';
 
 type AuthPage = 'sign-in' | 'sign-up';
 
@@ -39,7 +40,6 @@ interface Props {
 //   Component   //
 // 로그인
 function SignIn ({ onLinkClickHandler }: Props) {
-
   //   state   //
   const [id, setId] = useState<string>('');
   const [password, setPassword] = useState<string>('');
@@ -69,7 +69,6 @@ function SignIn ({ onLinkClickHandler }: Props) {
     } else {
       setMessage('로그인 정보가 일치하지 않습니다.');
     }
-
   };
 
   //   render   //
@@ -92,7 +91,6 @@ function SignIn ({ onLinkClickHandler }: Props) {
 //   Component   //
 // 회원가입
 function SignUp ({ onLinkClickHandler }: Props) {
-
   //   state   //
   const [id, setId] = useState<string>('');
   const [password, setPassword] = useState<string>('');
@@ -123,6 +121,40 @@ function SignUp ({ onLinkClickHandler }: Props) {
   const isSignUpActive = isIdCheck && isEmailCheck && isAuthNumberCheck && isPasswordPattern && isEqualPassword;
   const signUpButtonClass = isSignUpActive ? 'primary-button full-width' : 'disable-button full-width';
 
+  //   function   //
+  const idCheckResponse = (result: ResponseDto | null) => {
+    if (!result) {
+      setIdMessage('서버에 문제가 있습니다.');
+      setIdError(true);
+      setIdCheck(false);
+      return;
+    }
+    const { code } = result;
+    if (code === 'VF') {
+      setIdMessage('아이디는 빈 값 혹은 공백으로만 이루어질 수 없습니다.');
+      setIdError(true);
+      setIdCheck(false);
+      return;
+    }
+    if (code === 'DI') {
+      setIdMessage('이미 사용중인 아이디입니다.');
+      setIdError(true);
+      setIdCheck(false);
+      return;
+    }
+    if (code === 'DBE') {
+      setIdMessage('서버에 문제가 있습니다.');
+      setIdError(true);
+      setIdCheck(false);
+      return;
+    }
+    if (code === 'SU') {
+      setIdMessage('사용 가능한 아이디입니다.')
+      setIdError(false);
+      setIdCheck(true);
+    }
+  };
+
   //   event handler   //
   const onIdChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
@@ -137,7 +169,7 @@ function SignUp ({ onLinkClickHandler }: Props) {
     if (!id || !id.trim()) return;
     
     const requestBody: IdCheckRequestDto = { userId: id };
-    IdCheckRequest(requestBody);
+    IdCheckRequest(requestBody).then(idCheckResponse);
   };
 
   const onPasswordChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
@@ -252,7 +284,6 @@ function SignUp ({ onLinkClickHandler }: Props) {
 //   component   //
 // 로그인과 회원가입의 부모 컴포넌트
 export default function Authentication() {
-
   //   state   //
   const [page, setPage] = useState<AuthPage>('sign-up');
   

@@ -1,0 +1,14 @@
+- authentication(로그인, 회원가입)
+- service
+  - local(지역평균)
+  - ratio(비율계산)
+  - qna(QnA 리스트)
+    - :receptionNumber (QnA 상세보기)
+    - write(QnA 작성)
+    - update/:receptionNumber(QnA 수정)
+
+localhost:3000/service -> 보여줄 화면이 존재하지 않는 URL(하위 경로의 공통적인 부분을 표시하면 됨)
+
+localhost:3000/service/qna/1
+localhost:3000/service/qna/2
+-> 위와 같이 링크의 끝이 변수일 경우 route에서 가장 마지막에 적어주면 됨

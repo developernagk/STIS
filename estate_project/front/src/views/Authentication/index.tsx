@@ -4,6 +4,8 @@ import './style.css';
 import SignInBackground from 'src/assets/image/sign-in-background.png';
 import SignUpBackground from 'src/assets/image/sign-up-background.png';
 import InputBox from 'src/components/Inputbox';
+import { IdCheckRequestDto } from 'src/apis/auth/dto/request';
+import { IdCheckRequest } from 'src/apis/auth';
 
 type AuthPage = 'sign-in' | 'sign-up';
 
@@ -119,10 +121,7 @@ function SignUp ({ onLinkClickHandler }: Props) {
   const [isAuthNumberError, setAuthNumberError] = useState<boolean>(false);
 
   const isSignUpActive = isIdCheck && isEmailCheck && isAuthNumberCheck && isPasswordPattern && isEqualPassword;
-  // primary-button full-width / disable-button full-width
   const signUpButtonClass = isSignUpActive ? 'primary-button full-width' : 'disable-button full-width';
-  // const signUpButtonClass = (isSignUpActive ? 'primary' : 'disable') + '-button full-width';
-  // const signUpButtonClass = `${isSignUpActive ? 'primary' : 'disable'}-button full-width`;
 
   //   event handler   //
   const onIdChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
@@ -135,13 +134,10 @@ function SignUp ({ onLinkClickHandler }: Props) {
 
   const onIdButtonClickHandler = () => {
     if (!idButtonStatus) return;
-
-    const idCheck = id !== 'admin';
-    setIdCheck(idCheck);
-    setIdError(!idCheck);
-
-    const idMessage = idCheck ? '사용 가능한 아이디입니다.' : '이미 사용중인 아이디입니다.';
-    setIdMessage(idMessage);
+    if (!id || !id.trim()) return;
+    
+    const requestBody: IdCheckRequestDto = { userId: id };
+    IdCheckRequest(requestBody);
   };
 
   const onPasswordChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
@@ -253,14 +249,14 @@ function SignUp ({ onLinkClickHandler }: Props) {
   );
 }
 
+//   component   //
 // 로그인과 회원가입의 부모 컴포넌트
 export default function Authentication() {
 
-  // useState는 반드시 컴포넌트 안에 선언되어야 함
-  // 컴포넌트 바로 아래에 선언되어야 하고 컴포넌트 내에 선언된 함수 안에서 사용 불가능
-  const [page, setPage] = useState<AuthPage>('sign-in');
-
-  // 자식 컴포넌트에서 선언하고 싶을 경우 전역에 interface로 선언을 하고 매개변수로 받아온 뒤 사용
+  //   state   //
+  const [page, setPage] = useState<AuthPage>('sign-up');
+  
+  //   event handler   //
   const onLinkClickHandler = () => {
     if (page === 'sign-in') setPage('sign-up');
     else setPage('sign-in');
@@ -270,6 +266,7 @@ export default function Authentication() {
 
   const imageBoxStyle = {backgroundImage: `url(${page === 'sign-in' ? SignInBackground : SignUpBackground})`};
 
+  //   render   //
   return (
     <div id="authentication-wrapper">
       <div className="authentication-image-box" style={imageBoxStyle}></div>

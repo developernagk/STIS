@@ -21,6 +21,7 @@ function SnsContainer({ title }: SnsContainerProps) {
     alert(type);
   };
 
+  //   render   //
   return (
     <div className="authentication-sns-container">
       <div className="sns-container-title label">{title}</div>

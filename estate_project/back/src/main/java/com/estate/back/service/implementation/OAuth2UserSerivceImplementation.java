@@ -69,7 +69,7 @@ public class OAuth2UserSerivceImplementation extends DefaultOAuth2UserService {
     if (oauthClientName.equals("NAVER")) {
       Map<String, String> response = (Map<String, String>) oAuth2User.getAttributes().get("response");
       id = response.get("id");
-  };
-  return id;
+    };
+    return id;
   };
 }

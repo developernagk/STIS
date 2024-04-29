@@ -366,7 +366,7 @@ function SignUp ({ onLinkClickHandler }: Props) {
 // 로그인과 회원가입의 부모 컴포넌트
 export default function Authentication() {
   //   state   //
-  const [page, setPage] = useState<AuthPage>('sign-up');
+  const [page, setPage] = useState<AuthPage>('sign-in');
   
   //   event handler   //
   const onLinkClickHandler = () => {

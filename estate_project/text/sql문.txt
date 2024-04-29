@@ -13,3 +13,6 @@ SELECT * FROM user WHERE userEmail = :userEmail;
 
 SELECT * FROM user WHERE userEmail = :userEmail AND authNumber = :authNumber;
 -> existsByEmailAndAuthNumber(userEmail, authNumber)
+
+SELECT * FROM email_auth_number WHERE email = :email AND authNumber = :authNumber;
+-> existsByEmailAndAuthNumber(userEmail, authNumber)

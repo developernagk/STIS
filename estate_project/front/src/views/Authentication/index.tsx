@@ -5,7 +5,7 @@ import SignInBackground from 'src/assets/image/sign-in-background.png';
 import SignUpBackground from 'src/assets/image/sign-up-background.png';
 import InputBox from 'src/components/Inputbox';
 import { EmailAuthCheckRequestDto, EmailAuthRequestDto, IdCheckRequestDto } from 'src/apis/auth/dto/request';
-import { EmailAuthRequest, IdCheckRequest } from 'src/apis/auth';
+import { EmailAuthCheckRequest, EmailAuthRequest, IdCheckRequest } from 'src/apis/auth';
 import ResponseDto from 'src/apis/response.dto';
 
 type AuthPage = 'sign-in' | 'sign-up';
@@ -157,7 +157,11 @@ function SignUp ({ onLinkClickHandler }: Props) {
     setEmailMessage(emailMessage);
     setEmailError(emailError);
     setEmailCheck(emailCheck);
-  }
+  };
+
+  const emailAuthCheckResponse = (result: ResponseDto | null) => {
+    
+  };
 
   //   event handler   //
   const onIdChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
@@ -234,7 +238,7 @@ function SignUp ({ onLinkClickHandler }: Props) {
     }
     const requestBody: EmailAuthRequestDto = {userEmail: email};
     EmailAuthRequest(requestBody).then(emailAuthResponse);
-  }
+  };
 
   const onAuthNumberChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
@@ -242,18 +246,18 @@ function SignUp ({ onLinkClickHandler }: Props) {
     setAuthNumberBottonStatus(value !== '');
     setAuthNumberCheck(false);
     setAuthNumberMessage('');
-  }
+  };
 
   const onAuthNumberButtonClickHandler = () => {
     if (!authNumberButtonStatus) return;
+    if (!authNumber) return;
     
-    const authNumberCheck = authNumber === '1234';
-    setAuthNumberCheck(authNumberCheck);
-    setAuthNumberError(!authNumberCheck);
-
-    const authNumberMessage = authNumberCheck ? '인증번호가 확인되었습니다.' : '인증번호가 일치하지 않습니다.';
-    setAuthNumberMessage(authNumberMessage);
-  }
+    const requestBody: EmailAuthCheckRequestDto = {
+      userEmail:email,
+      authNumber
+    };
+    EmailAuthCheckRequest(requestBody).then(emailAuthCheckResponse);
+  };
 
   const onSignUpButtonClickHandler = () => {
     if (!isSignUpActive) return;

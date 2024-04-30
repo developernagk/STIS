@@ -1,6 +1,7 @@
 import React, { ChangeEvent } from 'react';
 import './style.css';
 
+//   interface   //
 export interface InputBoxProps {
   label: string;
   type: 'text' | 'password';
@@ -14,11 +15,13 @@ export interface InputBoxProps {
   error?: boolean;
 }
 
+//   function   //
 export default function InputBox({ label, type, value, placeholder, onChangeHandler, buttonTitle, buttonStatus, onButtonClickHandler, message, error }: InputBoxProps) {
-
+  //   state   //
   const buttonClass = buttonStatus ? 'input-primary-button' : 'input-disable-button';
   const messageClass = 'input-message ' + (error ? 'error' : 'primary');
 
+  //   render   //
   return (
     <div className="input-box">
       <div className="input-label label">{label}</div>

@@ -1,13 +1,17 @@
 import { create } from "zustand";
 
 interface UserStore {
-  role: string,
-  setRole: (role: string) => void
+  loginUserId: string,
+  setLoginUserId: (loginUserId: string) => void,
+  loginUserRole: string,
+  setloginUserRole: (loginUserRole: string) => void
 }
 
 const useUserStore = create<UserStore>(set => ({
-  role: '',
-  setRole: (role: string) => set(state => ({ ...state, role }))
+  loginUserId: '',
+  setLoginUserId: (loginUserId: string) => set(state => ({ ...state, loginUserId })),
+  loginUserRole: '',
+  setloginUserRole: (loginUserRole: string) => set(state => ({ ...state, loginUserRole }))
 }));
 
 export default useUserStore;

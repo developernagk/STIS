@@ -15,7 +15,7 @@ export interface InputBoxProps {
   error?: boolean;
 }
 
-//   function   //
+//   component   //
 export default function InputBox({ label, type, value, placeholder, onChangeHandler, buttonTitle, buttonStatus, onButtonClickHandler, message, error }: InputBoxProps) {
   //   state   //
   const buttonClass = buttonStatus ? 'input-primary-button' : 'input-disable-button';

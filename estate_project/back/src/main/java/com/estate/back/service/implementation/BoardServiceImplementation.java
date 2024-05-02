@@ -16,6 +16,7 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class BoardServiceImplementation implements BoardService {
+  
   private final BoardRepository boardRepository;
   private final UserRepository userRepository;
 

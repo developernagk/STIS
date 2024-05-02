@@ -26,7 +26,7 @@ public class BoardServiceImplementation implements BoardService {
       if (!isExistUser) return ResponseDto.authenticationFailed();
 
       BoardEntity boardEntity = new BoardEntity(dto, userId);
-
+      boardRepository.save(boardEntity);
     } catch(Exception exception) {
       exception.printStackTrace();
       return ResponseDto.databaseError();

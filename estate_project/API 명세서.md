@@ -59,8 +59,8 @@ curl -v -X POST "http://localhost:4000/api/v1/auth/sign-in" \
 
 | name | type | description | required |
 |---|:---:|:---:|:---:|
-| code | String | 코드 | O |
-| message | String | 메세지 | O |
+| code | String | 결과 코드 | O |
+| message | String | 결과 메세지 | O |
 | accessToken | String | 사용자의 아이디 | O |
 | expires | int | 사용자의 비밀번호 | O |
 
@@ -161,8 +161,8 @@ curl -v -X POST "http://localhost:4000/api/v1/auth/id-check" \
 
 | name | type | description | required |
 |---|:---:|:---:|:---:|
-| code | String | 코드 | O |
-| message | String | 메세지 | O |
+| code | String | 결과 코드 | O |
+| message | String | 결과 메세지 | O |
 
 ###### Example
 
@@ -212,7 +212,7 @@ Content-Type: application/json;charset=UTF-8
   
 ##### 설명
 
-클라이언트로부터 이메일을 입력받아 해당하는 이메일이 이미 사용중인 이메일인지 확인하고 사용하고 있지 않은 이메일이라면 4자리의 인증코드를 해당 이메일로 전송합니다. 이메일 전송이 성공적으로 종료되었으면 성공처리를 합니다. 만약 중복된 이메일이거나 이메일 전송에 실패했으면 실패처리를 합니다. 데이터베이스 오류가 발생할 수 있습니다.
+클라이언트로부터 이메일을 입력받아 해당하는 이메일이 이미 사용중인 이메일인지 확인하고 사용하고 있지 않은 이메일이라면 4자리의 인증결과 코드를 해당 이메일로 전송합니다. 이메일 전송이 성공적으로 종료되었으면 성공처리를 합니다. 만약 중복된 이메일이거나 이메일 전송에 실패했으면 실패처리를 합니다. 데이터베이스 오류가 발생할 수 있습니다.
 
 - method : **POST**  
 - URL : **/email-auth**  
@@ -249,8 +249,8 @@ curl -v -X POST "http://localhost:4000/api/v1/auth/email-auth" \
 
 | name | type | description | required |
 |---|:---:|:---:|:---:|
-| code | String | 코드 | O |
-| message | String | 메세지 | O |
+| code | String | 결과 코드 | O |
+| message | String | 결과 메세지 | O |
 
 ###### Example
 
@@ -349,8 +349,8 @@ curl -v -X POST "http://localhost:4000/api/v1/auth/email-auth-check" \
 
 | name | type | description | required |
 |---|:---:|:---:|:---:|
-| code | String | 코드 | O |
-| message | String | 메세지 | O |
+| code | String | 결과 코드 | O |
+| message | String | 결과 메세지 | O |
 
 ###### Example
 
@@ -443,8 +443,8 @@ curl -v -X POST "http://localhost:4000/api/v1/auth/sign-up" \
 
 | name | type | description | required |
 |---|:---:|:---:|:---:|
-| code | String | 코드 | O |
-| message | String | 메세지 | O |
+| code | String | 결과 코드 | O |
+| message | String | 결과 메세지 | O |
 
 ###### Example
 
@@ -538,7 +538,7 @@ Content-Type: application/json;charset=UTF-8
 ###### Example
 
 ```bash
-curl -v -X GET "http://localhost:4000/api/v1/user" \
+curl -v -X GET "http://localhost:4000/api/v1/user/" \
  -H "Authorization: Bearer {JWT}"
 ```
 
@@ -554,8 +554,8 @@ curl -v -X GET "http://localhost:4000/api/v1/user" \
 
 | name | type | description | required |
 |---|:---:|:---:|:---:|
-| code | String | 코드 | O |
-| message | String | 메세지 | O |
+| code | String | 결과 코드 | O |
+| message | String | 결과 메세지 | O |
 | userId | String | 사용자의 아이디 | O |
 | userRole | String | 사용자의 권한 | O |
 
@@ -608,7 +608,7 @@ Content-Type: application/json;charset=UTF-8
 
 Q&A 게시물과 관련된 REST API 모듈 
   
-- url : /api/v1/qna  
+- url : /api/v1/board  
 
 ***
 
@@ -629,11 +629,20 @@ Q&A 게시물과 관련된 REST API 모듈
 |---|:---:|:---:|
 | Authorization | 인증에 사용될 Bearer 토큰 | O |
 
+###### Request Body
+
+| name | type | description | required |
+|---|:---:|:---:|:---:|
+| title | String | Q&A 제목 | O |
+| contents | String | Q&A 내용 | O |
+
 ###### Example
 
 ```bash
-curl -v -X GET "http://localhost:4000/api/v1/user" \
- -H "Authorization: Bearer {JWT}"
+curl -v -X POST "http://localhost:4000/api/v1/board/" \
+ -H "Authorization: Bearer {JWT}" \
+ -d "title={title}" \
+ -d "contents={contents}"
 ```
 
 ##### Response
@@ -648,10 +657,8 @@ curl -v -X GET "http://localhost:4000/api/v1/user" \
 
 | name | type | description | required |
 |---|:---:|:---:|:---:|
-| code | String | 코드 | O |
-| message | String | 메세지 | O |
-| userId | String | 사용자의 아이디 | O |
-| userRole | String | 사용자의 권한 | O |
+| code | String | 결과 코드 | O |
+| message | String | 결과 메세지 | O |
 
 ###### Example
 
@@ -661,9 +668,16 @@ HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
 {
   "code": "SU",
-  "message": "Success.",
-  "uesrId": "${userId}",
-  "userRole": "${userRole}"
+  "message": "Success."
+}
+```
+**응답 : 실패 (데이터 유효성 검사 실패)**
+```bash
+HTTP/1.1 400 Bad Request
+Content-Type: application/json;charset=UTF-8
+{
+  "code": "VF",
+  "message": "Validation Failed."
 }
 ```
 

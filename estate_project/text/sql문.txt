@@ -1,6 +1,5 @@
 쿼리 메서드로 변경
 
-UserRepository
 SELECT * FROM user WHERE userId = :userId
 -> findByUserId(userId)
 

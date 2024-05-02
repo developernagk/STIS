@@ -15,3 +15,6 @@ SELECT * FROM user WHERE userEmail = :userEmail AND authNumber = :authNumber;
 
 SELECT * FROM email_auth_number WHERE email = :email AND authNumber = :authNumber;
 -> existsByEmailAndAuthNumber(userEmail, authNumber)
+
+SELECT * FROM board ORDER BY receptionNumber DESC;
+-> findByOrderByReceptionNumberDesc(receptionNumber);

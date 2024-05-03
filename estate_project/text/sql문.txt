@@ -17,4 +17,7 @@ SELECT * FROM email_auth_number WHERE email = :email AND authNumber = :authNumbe
 -> existsByEmailAndAuthNumber(userEmail, authNumber)
 
 SELECT * FROM board ORDER BY receptionNumber DESC;
--> findByOrderByReceptionNumberDesc(receptionNumber);
+-> findByOrderByReceptionNumberDesc();
+
+SELECT * FROM board WHERE title LIKE '%searchWord%' ORDER BY receptionNumber DESC;
+-> findByTitleContainsOrderByReceptionNumberDesc(searchWord);

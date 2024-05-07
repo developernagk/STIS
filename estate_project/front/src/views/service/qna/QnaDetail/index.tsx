@@ -35,7 +35,7 @@ export default function QnaDetail() {
         <div className="primary-button">목록보기</div>
         <div className="qna-detail-owner-button-box">
           <div className="second-button">수정</div>
-          <div className="error-button">식제</div>
+          <div className="error-button">삭제</div>
         </div>
       </div>
     </div>

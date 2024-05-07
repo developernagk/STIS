@@ -958,7 +958,7 @@ Content-Type: application/json;charset=UTF-8
 
 | name | type | description | required |
 |---|:---:|:---:|:---:|
-| receptionNumber | Int | 접수 번호 | O |
+| receptionNumber | int | 접수 번호 | O |
 
 ###### Example
 
@@ -981,10 +981,12 @@ curl -v -X GET "http://localhost:4000/api/v1/board/${receptionNumber}" \
 |---|:---:|:---:|:---:|
 | code | String | 결과 코드 | O |
 | message | String | 결과 메세지 | O |
+| receptionNumber | int | 접수 번호 | O |
+| status | boolean | 상태 | O |
 | title | String | 제목 | O |
 | writerId | String | 작성자 아이디 | O |
-| writeDatetime | String | 작성일 | O |
-| viewCount | Int | 조회수 | O |
+| writeDatetime | String | 작성일</br>(yyyy.mm.dd 형태) | O |
+| viewCount | int | 조회수 | O |
 | contents | String | 내용 | O |
 | comment | String | 답글 내용 | X |
 
@@ -997,16 +999,14 @@ Content-Type: application/json;charset=UTF-8
 {
   "code": "SU",
   "message": "Success.",
-  "boardList": [
-    {
-      "receptionNumber": 1,
-      "status": false,
-      "title": "test",
-      "writerId": "s*********",
-      "wirteDatetime": "24.05.02",
-      "viewCount": 0
-    }, ...
-  ]
+  "receptionNumber": ${receptionNumber},
+  "status": ${status},
+  "title": ${title},
+  "writerId": ${writerId},
+  "writeDatetime": ${writeDatetime},
+  "viewCount": ${viewCount},
+  "contents": ${contents},
+  "comment": ${comment}
 }
 ```
 
@@ -1017,6 +1017,16 @@ Content-Type: application/json;charset=UTF-8
 {
   "code": "VF",
   "message": "Validation Failed."
+}
+```
+
+**응답 : 실패 (존재하지 않는 게시물)**
+```bash
+HTTP/1.1 400 Bad Request
+Content-Type: application/json;charset=UTF-8
+{
+  "code": "NB",
+  "message": "No Exist Board."
 }
 ```
 

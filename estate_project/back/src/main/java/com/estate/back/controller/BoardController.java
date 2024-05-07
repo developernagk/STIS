@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.estate.back.dto.request.board.PostBoardRequestDto;
+import com.estate.back.dto.request.board.PostCommentRequestDto;
 import com.estate.back.dto.response.ResponseDto;
 import com.estate.back.dto.response.board.GetBoardListResponseDto;
 import com.estate.back.dto.response.board.GetBoardResponseDto;
@@ -37,11 +38,20 @@ public class BoardController {
     return response;
   };
 
+  @PostMapping("/{receptionNumber}/comment")
+  public ResponseEntity<ResponseDto> postComment(
+    @RequestBody @Valid PostCommentRequestDto requestBody,
+    @PathVariable("receptionNumber") int receptionNumber
+    ) {
+      ResponseEntity<ResponseDto> response = boardService.postComment(requestBody, receptionNumber);
+      return response;
+  };
+
   @GetMapping("/list")
   public ResponseEntity<? super GetBoardListResponseDto> getBoardList() {
     ResponseEntity<? super GetBoardListResponseDto> response = boardService.getBoardList();
     return response;
-  }
+  };
 
   @GetMapping("/list/{searchWord}")
   public ResponseEntity<? super GetSearchBoardResponseDto> getSearchBoardList(
@@ -49,7 +59,7 @@ public class BoardController {
   ) {
     ResponseEntity<? super GetSearchBoardResponseDto> response = boardService.getSearchBoardList(searchWord);
     return response;
-  }
+  };
 
   @GetMapping("/{receptionNumber}")
   public ResponseEntity<? super GetBoardResponseDto> getBoard(
@@ -57,7 +67,7 @@ public class BoardController {
   ) {
     ResponseEntity<? super GetBoardResponseDto> response = boardService.getBoard(receptionNumber);
     return response;
-  }
+  };
 
   @PatchMapping("/{receptionNumber}/increase-view-count")
   public ResponseEntity<ResponseDto> increaseViewCount(
@@ -65,5 +75,5 @@ public class BoardController {
   ) {
     ResponseEntity<ResponseDto> response = boardService.increaseViewCount(receptionNumber);
     return response;
-  }
+  };
 }

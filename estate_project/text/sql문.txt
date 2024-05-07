@@ -21,3 +21,6 @@ SELECT * FROM board ORDER BY receptionNumber DESC;
 
 SELECT * FROM board WHERE title LIKE '%searchWord%' ORDER BY receptionNumber DESC;
 -> findByTitleContainsOrderByReceptionNumberDesc(searchWord);
+
+SELECT * FROM board WHERE receptionNumber = :receptionNumber;
+-> findByReceptionNumber(receptionNumber);

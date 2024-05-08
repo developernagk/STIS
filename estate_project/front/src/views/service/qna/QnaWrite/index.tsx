@@ -52,7 +52,7 @@ export default function QnaWrite() {
   };
 
   const onPostButtonClickHandler = () => {
-    if (!title || !contents) return;
+    if (!title.trim() || !contents) return;
     if (!cookies.accessToken) return;
 
     const requestBody: PostBoardRequestDto = { title, contents };

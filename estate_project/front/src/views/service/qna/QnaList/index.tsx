@@ -73,7 +73,9 @@ export default function QnaList() {
   };
 
   const changeBoardList = (boardList: BoardListItem[]) => {
-    setBoardList(boardList);
+    if(isToggleOn){ boardList = boardList.filter(board => !board.status); }
+  setBoardList(boardList);
+
 
     const totalLength = boardList.length;
     setTotalLength(totalLength);
@@ -102,6 +104,9 @@ export default function QnaList() {
     };
     const { boardList } = result as GetBoardListResponseDto;
     changeBoardList(boardList);
+
+    setCurrentPage(1);
+    setCurrentSection(1);
   };
 
   const getSearchBoardListResponse = (result: GetSearchBoardListResponseDto | ResponseDto | null) => {
@@ -164,7 +169,7 @@ export default function QnaList() {
   useEffect(() => {
     if (!cookies.accessToken) return;
     getBoardListRequest(cookies.accessToken).then(getBoardListResponse);
-  }, []);
+}, [isToggleOn]);
 
   useEffect(() => {
     if (!boardList.length) return;
@@ -183,7 +188,7 @@ export default function QnaList() {
     <div id="qna-list-wrapper">
       <div className="qna-list-top">
         <div className="qna-list-size-text">전체 <span className="emphasis">{totalLength}건</span> | 페이지 <span className="emphasis">{currentPage}/{totalPage}</span></div>
-        <div className="qna-list-top-rignt">
+        <div className="qna-list-top-right">
           {loginUserRole === 'ROLE_USER' ? 
           <div className="primary-button" onClick={onWriteButtonClickHandler}>글쓰기</div> : 
           <>

@@ -4,7 +4,7 @@ import { useUserStore } from 'src/stores';
 import { useNavigate } from 'react-router';
 import { AUTH_ABSOLUTE_PATH, COUNT_PER_PAGE, COUNT_PER_SECTION, QNA_DETAIL_ABSOLUTE_PATH, QNA_WRITE_ABSOLUTE_PATH } from 'src/constant';
 import { BoardListItem } from 'src/types';
-import { getBoardListRequest, getSearchBoardListRespuest } from 'src/apis/board';
+import { getBoardListRequest, getSearchBoardListRequest } from 'src/apis/board';
 import { useCookies } from 'react-cookie';
 import ResponseDto from 'src/apis/response.dto';
 import { GetBoardListResponseDto, GetSearchBoardListResponseDto } from 'src/apis/board/dto/response';
@@ -162,13 +162,13 @@ export default function QnaList() {
   const onSearchButtonClickHandler = () => {
     if (!searchWord) return;
     if (!cookies.accessToken) return;
-    getSearchBoardListRespuest(searchWord, cookies.accessToken).then(getSearchBoardListResponse);
+    getSearchBoardListRequest(searchWord, cookies.accessToken).then(getSearchBoardListResponse);
   };
 
   //   effect  //
   useEffect(() => {
     if (!cookies.accessToken) return;
-    getBoardListRequest(cookies.accessToken).then(getBoardListResponse);
+    getSearchBoardListRequest(searchWord,cookies.accessToken).then(getSearchBoardListResponse);
 }, [isToggleOn]);
 
   useEffect(() => {

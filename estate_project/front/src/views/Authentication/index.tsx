@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useEffect, useState } from 'react';
+import React, { ChangeEvent, KeyboardEvent, useEffect, useState } from 'react';
 import './style.css';
 
 import SignInBackground from 'src/assets/image/sign-in-background.png';
@@ -109,6 +109,11 @@ function SignIn ({ onLinkClickHandler }: Props) {
     setPassword(event.target.value);
     setMessage('');
   };
+  
+  const onPasswordKeydownHandler = (event: KeyboardEvent<HTMLInputElement>) => {
+    if (event.key !== 'Enter') return;
+    onSignInButtonClickHandler();
+  };
 
   const onSignInButtonClickHandler = () => {
     if (!id || !password) {
@@ -131,7 +136,7 @@ function SignIn ({ onLinkClickHandler }: Props) {
         <InputBox label="비밀번호" type="password" value={password} placeholder="비밀번호를 입력해주세요." onChangeHandler={onPasswordChangeHandler} message={message} error />
       </div>
       <div className="authentication-button-container">
-        <div className="primary-button full-width" onClick={onSignInButtonClickHandler}>로그인</div>
+        <div className="primary-button full-width" onClick={onSignInButtonClickHandler} onKeyDown={onPasswordKeydownHandler}>로그인</div>
         <div className="text-link" onClick={onLinkClickHandler}>회원가입</div>
       </div>
       <div className="short-divider"></div>

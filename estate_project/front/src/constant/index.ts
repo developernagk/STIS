@@ -46,5 +46,5 @@ export const DELETE_BOARD_URL = (receptionNumber: number | string) => `${SERVER_
 export const UPDATE_BOARD_URL = (receptionNumber: number | string) => `${SERVER_BOARD_MODULE_URL}/${receptionNumber}`;
 
 // description: 게시물 상수
-export const COUNT_PER_PAGE = 5;
+export const COUNT_PER_PAGE = 10;
 export const COUNT_PER_SECTION = 10;

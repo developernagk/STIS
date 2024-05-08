@@ -7,3 +7,8 @@ export interface PostBoardRequestDto {
 export interface postCommentRequestDto {
   comment: string;
 }
+
+export interface putBoardRequestDto {
+  title: string;
+  contents: string;
+}

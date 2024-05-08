@@ -1410,9 +1410,9 @@ Content-Type: application/json;charset=UTF-8
   
 ##### 설명
 
-클라이언트로부터 Request Header의 Authorization 필드로 Bearer 토큰을 포함하여 접수번호를 입력받고 요청을 보내면 해당하는 Q&A 게시물이 수정됩니다. 만약 수정에 실패하면 실패 처리를 합니다. 인가 실패, 데이터베이스 에러가 발생할 수 있습니다.
+클라이언트로부터 Request Header의 Authorization 필드로 Bearer 토큰을 포함하여 접수번호, 제목, 내용을 입력받고 수정에 성공하면 성공 처리를 합니다. 만약 수정에 실패하면 실패 처리됩니다. 인가 실패, 데이터 유효성 검사 실패, 데이터베이스 에러가 발생할 수 있습니다.
 
-- method : **DELETE**  
+- method : **PUT**  
 - URL : **/{receptionNumber}**  
 
 ##### Request
@@ -1427,13 +1427,22 @@ Content-Type: application/json;charset=UTF-8
 
 | name | type | description | required |
 |---|:---:|:---:|:---:|
-| receptionNumber | int | 접수 번호 | O |
+| receptionNumber | int | 수정할 접수 번호 | O |
+
+###### Request Body
+
+| name | type | description | required |
+|---|:---:|:---:|:---:|
+| title | String | Q&A 제목 | O |
+| contents | String | Q&A 내용 | O |
 
 ###### Example
 
 ```bash
-curl -v -X POST "http://localhost:4000/api/v1/board/${receptionNumber}" \
- -H "Authorization: Bearer {JWT}" 
+curl -v -X PUT "http://localhost:4000/api/v1/board/${receptionNumber}" \
+ -H "Authorization: Bearer {JWT}" \
+ -d "title={title}" \
+ -d "contents={contents}"
 ```
 
 ##### Response
@@ -1462,7 +1471,6 @@ Content-Type: application/json;charset=UTF-8
   "message": "Success."
 }
 ```
-
 **응답 : 실패 (데이터 유효성 검사 실패)**
 ```bash
 HTTP/1.1 400 Bad Request
@@ -1470,16 +1478,6 @@ Content-Type: application/json;charset=UTF-8
 {
   "code": "VF",
   "message": "Validation Failed."
-}
-```
-
-**응답 : 실패 (존재하지 않는 게시물)**
-```bash
-HTTP/1.1 400 Bad Request
-Content-Type: application/json;charset=UTF-8
-{
-  "code": "NB",
-  "message": "No Exist Board."
 }
 ```
 
@@ -1493,13 +1491,33 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-**응답 : 실패 (인증 실패)**
+**응답 : 실패 (존재하지 않는 게시물)**
 ```bash
-HTTP/1.1 401 Unauthorized
+HTTP/1.1 400 Bad Request
+Content-Type: application/json;charset=UTF-8
+{
+  "code": "NB",
+  "message": "No Exist Board."
+}
+```
+
+**응답 : 실패 (답변 완료된 게시물)**
+```bash
+HTTP/1.1 400 Bad Request
+Content-Type: application/json;charset=UTF-8
+{
+  "code": "WC",
+  "message": "Written Comment."
+}
+```
+
+**응답 : 실패 (권한 없음)**
+```bash
+HTTP/1.1 403 Forbidden
 Content-Type: application/json;charset=UTF-8
 {
   "code": "AF",
-  "message": "Authentication Failed."
+  "message": "Authorization Failed."
 }
 ```
 

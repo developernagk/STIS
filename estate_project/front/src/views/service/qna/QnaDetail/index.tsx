@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useEffect, useReducer, useRef, useState } from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import './style.css';
 import { useUserStore } from 'src/stores';
 import { deleteBoardRequest, getBoardRequest, increaseViewCountRequest, postCommentRequest } from 'src/apis/board';

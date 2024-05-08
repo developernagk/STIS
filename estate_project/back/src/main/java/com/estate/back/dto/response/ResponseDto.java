@@ -58,6 +58,11 @@ public class ResponseDto {
     return ResponseEntity.status(HttpStatus.FORBIDDEN).body(responseBody);
   }
 
+  public static ResponseEntity<ResponseDto> notFound() {
+    ResponseDto responseBody = new ResponseDto(ResponseCode.NOT_FOUND, ResponseMessage.NOT_FOUND);
+    return ResponseEntity.status(HttpStatus.NOT_FOUND).body(responseBody);
+  }
+
   public static ResponseEntity<ResponseDto> tokenCreationFailed() {
     ResponseDto responseBody = new ResponseDto(ResponseCode.TOKEN_CREATEION_FAILED, ResponseMessage.TOKEN_CREATEION_FAILED);
     return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(responseBody);

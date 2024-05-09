@@ -6,6 +6,6 @@ export default function Local() {
 
   //   render   //
   return (
-    <div>Local</div>
+    
   )
 }

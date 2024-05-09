@@ -109,7 +109,7 @@ export default function Ratio() {
           <div className="local-card-unit">(단위: 백만원)</div>
         </div>
         <div className="local-card-chart-box">
-          <Line options={returnOptions} data={returnData} />
+          <Line width={'1086px'} height={'238px'} options={returnOptions} data={returnData} />
         </div>
       </div>
       <div className="local-card">
@@ -118,7 +118,7 @@ export default function Ratio() {
           <div className="local-card-unit">(단위: 백만원)</div>
         </div>
         <div className="local-card-chart-box">
-          <Bar options={leaseRatioOptions} data={leaseRatioData} />
+          <Bar width={'1086px'} height={'238px'} options={leaseRatioOptions} data={leaseRatioData} />
         </div>
       </div>
       <div className="local-card">
@@ -127,7 +127,7 @@ export default function Ratio() {
           <div className="local-card-unit">(단위: 백만원)</div>
         </div>
         <div className="local-card-chart-box">
-          <Line options={monthRentRatioOptions} data={monthRentRatioData} />
+          <Line width={'1086px'} height={'238px'} options={monthRentRatioOptions} data={monthRentRatioData} />
         </div>
       </div>
     </div>

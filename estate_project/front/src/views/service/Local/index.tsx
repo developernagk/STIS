@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './style.css';
 import SelectBox from 'src/components/Selectbox';
-import { CategoryScale, Chart as ChartJS, LineElement, LinearScale, PointElement, Tooltip } from 'chart.js';
+import { CategoryScale, Chart as ChartJS, LineElement, LinearScale, PointElement, Tooltip, scales } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 
 ChartJS.register(
@@ -14,8 +14,43 @@ ChartJS.register(
 
 //   component   //
 export default function Local() {
-  const option = {
-    responsive: true
+  const saleOptions= {
+    responsive: false,
+    scales: {
+      y: {
+        min: 150,
+        max: 300,
+        ticks: {
+          stepSize: 30
+        }
+      }
+    }
+  };
+
+  const leaseOptions= {
+    responsive: false,
+    scales: {
+      y: {
+        min: 150,
+        max: 300,
+        ticks: {
+          stepSize: 30
+        }
+      }
+    }
+  };
+
+  const monthRentOptions= {
+    responsive: false,
+    scales: {
+      y: {
+        min: 150,
+        max: 300,
+        ticks: {
+          stepSize: 30
+        }
+      }
+    }
   };
 
   //   state   //
@@ -34,7 +69,7 @@ export default function Local() {
       borderColor: 'rgba(58, 87, 232, 1)',
       backgroundColor: 'rgba(58, 87, 232, 1)'
     }]
-  }
+  };
 
   const leaseData = {
     labels: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'],
@@ -44,7 +79,7 @@ export default function Local() {
       borderColor: 'rgba(58, 87, 232, 1)',
       backgroundColor: 'rgba(58, 87, 232, 1)'
     }]
-  }
+  };
 
   const monthRentData = {
     labels: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'],
@@ -54,7 +89,7 @@ export default function Local() {
       borderColor: 'rgba(58, 87, 232, 1)',
       backgroundColor: 'rgba(58, 87, 232, 1)'
     }]
-  }
+  };
 
   //   render   //
   return (
@@ -72,7 +107,7 @@ export default function Local() {
           <div className="local-card-unit">(단위: 백만원)</div>
         </div>
         <div className="local-card-chart-box">
-          <Line options={option} data={saleData}/>
+          <Line width={'1086px'} height={'238px'} options={saleOptions} data={saleData}/>
         </div>
       </div>
       <div className="local-card">
@@ -81,7 +116,7 @@ export default function Local() {
           <div className="local-card-unit">(단위: 백만원)</div>
         </div>
         <div className="local-card-chart-box">
-          <Line options={option} data={leaseData}/>
+          <Line width={'1086px'} height={'238px'} options={leaseOptions} data={leaseData}/>
         </div>
       </div>
       <div className="local-card">
@@ -90,7 +125,7 @@ export default function Local() {
           <div className="local-card-unit">(단위: 백만원)</div>
         </div>
         <div className="local-card-chart-box">
-          <Line options={option} data={monthRentData}/>
+          <Line width={'1086px'} height={'238px'} options={monthRentOptions} data={monthRentData}/>
         </div>
       </div>
     </div>

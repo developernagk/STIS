@@ -75,21 +75,21 @@ export default function Ratio() {
       {
         label: '40 초과 60 이하',
         data: [225, 224, 224, 224, 200, 211, 225, 224, 224, 224, 200, 211],
-        borderColor: 'rgba(100, 203, 100, 1)',
-        backgroundColor: 'rgba(100, 203, 100, 1)'
+        borderColor: 'rgba(0, 203, 93, 1)',
+        backgroundColor: 'rgba(0, 203, 93, 1)'
       },
       {
         label: '60 초과 85 이하',
         data: [225, 224, 224, 224, 200, 211, 225, 224, 224, 224, 200, 211],
-        borderColor: 'rgba(203, 100, 100, 1)',
-        backgroundColor: 'rgba(203, 100, 100, 1)'
+        borderColor: 'rgba(255, 168, 0, 1)',
+        backgroundColor: 'rgba(255, 168, 0, 1)'
       },
       {
         label: '85 초과',
         data: [225, 224, 224, 224, 200, 211, 225, 224, 224, 224, 200, 211],
-        borderColor: 'rgba(203, 203, 100, 1)',
-        backgroundColor: 'rgba(203, 203, 100, 1)'
-      }
+        borderColor: 'rgba(255, 84, 64, 1)',
+        backgroundColor: 'rgba(255, 84, 64, 1)'
+      },
     ]
   };
 
@@ -105,21 +105,21 @@ export default function Ratio() {
       {
         label: '40 초과 60 이하',
         data: [225, 224, 224, 224, 200, 211, 225, 224, 224, 224, 200, 211],
-        borderColor: 'rgba(100, 203, 100, 1)',
-        backgroundColor: 'rgba(100, 203, 100, 1)'
+        borderColor: 'rgba(0, 203, 93, 1)',
+        backgroundColor: 'rgba(0, 203, 93, 1)'
       },
       {
         label: '60 초과 85 이하',
         data: [225, 224, 224, 224, 200, 211, 225, 224, 224, 224, 200, 211],
-        borderColor: 'rgba(203, 100, 100, 1)',
-        backgroundColor: 'rgba(203, 100, 100, 1)'
+        borderColor: 'rgba(255, 168, 0, 1)',
+        backgroundColor: 'rgba(255, 168, 0, 1)'
       },
       {
         label: '85 초과',
         data: [225, 224, 224, 224, 200, 211, 225, 224, 224, 224, 200, 211],
-        borderColor: 'rgba(203, 203, 100, 1)',
-        backgroundColor: 'rgba(203, 203, 100, 1)'
-      }
+        borderColor: 'rgba(255, 84, 64, 1)',
+        backgroundColor: 'rgba(255, 84, 64, 1)'
+      },
     ]
   };
 
@@ -135,21 +135,21 @@ export default function Ratio() {
       {
         label: '40 초과 60 이하',
         data: [225, 224, 224, 224, 200, 211, 225, 224, 224, 224, 200, 211],
-        borderColor: 'rgba(100, 203, 100, 1)',
-        backgroundColor: 'rgba(100, 203, 100, 1)'
+        borderColor: 'rgba(0, 203, 93, 1)',
+        backgroundColor: 'rgba(0, 203, 93, 1)'
       },
       {
         label: '60 초과 85 이하',
         data: [225, 224, 224, 224, 200, 211, 225, 224, 224, 224, 200, 211],
-        borderColor: 'rgba(203, 100, 100, 1)',
-        backgroundColor: 'rgba(203, 100, 100, 1)'
+        borderColor: 'rgba(255, 168, 0, 1)',
+        backgroundColor: 'rgba(255, 168, 0, 1)'
       },
       {
         label: '85 초과',
         data: [225, 224, 224, 224, 200, 211, 225, 224, 224, 224, 200, 211],
-        borderColor: 'rgba(203, 203, 100, 1)',
-        backgroundColor: 'rgba(203, 203, 100, 1)'
-      }
+        borderColor: 'rgba(255, 84, 64, 1)',
+        backgroundColor: 'rgba(255, 84, 64, 1)'
+      },
     ]
   };
 

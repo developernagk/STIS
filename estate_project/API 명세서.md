@@ -1532,3 +1532,108 @@ Content-Type: application/json;charset=UTF-8
 ```
 
 ***
+
+<h2 style='background-color: rgba(55, 55, 55, 0.2); text-align: center'>Estate 모듈</h2>
+
+오피스텔 부동산 가격 정보와 관련된 REST API 모듈  
+지역 평균 데이터, 비율 관련 데이터 API가 포함되어 있습니다.  
+  
+- url : /api/v1/estate  
+
+***
+
+#### - 지역 평균 데이터 불러오기
+  
+##### 설명
+
+클라이언트로부터 Request Header의 Authorization 필드로 Bearer 토큰을 포함하여 지역을 입력받고 불러오기에 성공하면 성공 처리를 합니다.(매매가, 전세가, 월세 보증금의 단위는 1,000원 단위) 만약 불러오기에 실패하면 실패 처리됩니다. 인가 실패, 데이터 유효성 검사 실패, 데이터베이스 에러가 발생할 수 있습니다.
+
+- method : **GET**  
+- URL : **/local/{local}**  
+
+##### Request
+
+###### Header
+
+| name | description | required |
+|---|:---:|:---:|
+| Authorization | 인증에 사용될 Bearer 토큰 | O |
+
+###### Path Variable
+
+| name | type | description | required |
+|---|:---:|:---:|:---:|
+| local | String | 조회할 지역 | O |
+
+###### Example
+
+```bash
+curl -v -X PUT "http://localhost:4000/api/v1/estate/local/{local}" \
+ -H "Authorization: Bearer {JWT}" 
+```
+
+##### Response
+
+###### Header
+
+| name | description | required |
+|---|:---:|:---:|
+| Content-Type | 반환하는 Response Body의 Content Type (application/json) | O |
+
+###### Response Body
+
+| name | type | description | required |
+|---|:---:|:---:|:---:|
+| code | String | 결과 코드 | O |
+| message | String | 결과 메세지 | O |
+| yearMonth | String[] | 연월 리스트 | O |
+| sale | int[] | 매매가 리스트 | O |
+| lease | int[] | 전세가 리스트 | O |
+| monthRent | int[] | 월세 보증금 리스트 | O |
+
+###### Example
+
+**응답 성공**
+```bash
+HTTP/1.1 200 OK
+Content-Type: application/json;charset=UTF-8
+{
+  "code": "SU",
+  "message": "Success.", 
+  "yearMonth": ['23-01', '23-02', '23-03', '23-04', ..., '23-12'],
+  "Sale": [4354, 3434, 4343, ..., 2146],
+  "lease": [4354, 3434, 4343, ..., 2146],
+  "monthRent": [4354, 3434, 4343, ..., 2146]
+}
+```
+**응답 : 실패 (데이터 유효성 검사 실패)**
+```bash
+HTTP/1.1 400 Bad Request
+Content-Type: application/json;charset=UTF-8
+{
+  "code": "VF",
+  "message": "Validation Failed."
+}
+```
+
+**응답 : 실패 (인가 실패)**
+```bash
+HTTP/1.1 403 Forbidden
+Content-Type: application/json;charset=UTF-8
+{
+  "code": "AF",
+  "message": "Authorization Failed."
+}
+```
+
+**응답 : 실패 (데이터베이스 오류)**
+```bash
+HTTP/1.1 500 Internal Server Error
+Content-Type: application/json;charset=UTF-8
+{
+  "code": "DBE",
+  "message": "Database Error."
+}
+```
+
+***

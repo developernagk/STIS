@@ -45,6 +45,10 @@ export const INCREASE_VIEW_COUNT_URL = (receptionNumber: number | string) => `${
 export const DELETE_BOARD_URL = (receptionNumber: number | string) => `${SERVER_BOARD_MODULE_URL}/${receptionNumber}`;
 export const UPDATE_BOARD_URL = (receptionNumber: number | string) => `${SERVER_BOARD_MODULE_URL}/${receptionNumber}`;
 
+export const SERVER_ESTATE_MODULE_URL = `${SERVER_API_URL}/estate`;
+
+export const GET_LOCAL_DATA_URL = (local: string) => `${SERVER_ESTATE_MODULE_URL}/local/${local}`
+
 // description: 게시물 상수
 export const COUNT_PER_PAGE = 10;
 export const COUNT_PER_SECTION = 10;

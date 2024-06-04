@@ -1,7 +1,12 @@
 HELP.md
 .gradle
+<<<<<<< HEAD
 *.properties
 # build/
+=======
+**/application.properties
+build/
+>>>>>>> c4993b3f46c5d47ef83764c5f55a7f9e58306319
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/

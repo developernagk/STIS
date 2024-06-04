@@ -834,16 +834,28 @@ Content-Type: application/json;charset=UTF-8
 |---|:---:|:---:|
 | Authorization | 인증에 사용될 Bearer 토큰 | O |
 
+<<<<<<< HEAD
 ###### Query Pram
 
 | name | type | description | required |
 |---|:---:|:---:|:---:|
 | word | String | 검색어 | O |
+=======
+###### Path Variable
+
+| name | type | description | required |
+|---|:---:|:---:|:---:|
+| searchWord | String | 검색어 | O |
+>>>>>>> c4993b3f46c5d47ef83764c5f55a7f9e58306319
 
 ###### Example
 
 ```bash
+<<<<<<< HEAD
 curl -v -X GET "http://localhost:4000/api/v1/board/list/search?word=${searchWord}" \
+=======
+curl -v -X GET "http://localhost:4000/api/v1/board/list/${searchWord}" \
+>>>>>>> c4993b3f46c5d47ef83764c5f55a7f9e58306319
  -H "Authorization: Bearer {JWT}" 
 ```
 

@@ -1,0 +1,220 @@
+@font-face {
+    font-family: 'KakaoRegular';
+    src: url('../font/KakaoRegular.ttf');
+}
+
+@font-face {
+    font-family: 'KakaoBold';
+    src: url('../font/KakaoBold.ttf');
+}
+
+* {
+    font-family: 'KakaoRegular', sans-serif;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    min-width: 1712px;
+}
+
+#wrapper {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+
+    width: 1712px;
+}
+
+/*Title Box*/
+.title-box {
+    font-size: 52px;
+    line-height: 78px;
+    letter-spacing: -1px;
+    font-family: 'KakaoBold', sans-serif;
+    font-weight: 400;
+}
+
+/* content 값이 있어야만 브라우저에 출력되므로 빈값으로 지정해야 함*/
+.title-box::before {
+    background-image: url('https://www.kakaocorp.com/page/ico_tit_service.gif');
+    width: 78px;
+    height: 78px;
+    display: inline-block;
+    content: "";
+    background-size: 100%;
+    vertical-align: top;
+}
+
+/* Contents Box */
+.contents-box {
+    display: grid;
+    grid-template: 
+    "communication business" 180px
+    "life-style shopping" 180px
+    "entertainment social-impact" 180px
+    / 1fr 1fr;
+    gap: 16px;
+}
+
+.content-card {
+    display: flex;
+    background-color: rgba(240, 240, 240, 1);
+    border-radius: 24px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 64px;
+}
+
+.content-title {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+/*icon 주소는 f12 눌러서 background image로 찾으면 됨*/
+.content-icons-box {
+    display: flex;
+    gap: 12px;
+}
+
+.icon-button {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    background-size: 100%;
+}
+
+.icon-button:hover {
+    cursor: pointer;
+}
+
+.kakaotalk {
+    background-image: url('https://t1.kakaocdn.net/kakaocorp/kakaocorp/admin/kakaoService/c9424536018c00001.png');
+}
+
+.daum {
+    background-image: url('https://t1.kakaocdn.net/kakaocorp/kakaocorp/admin/kakaoService/c9425290018c00001.png');
+}
+
+.story {
+    background-image: url('https://t1.kakaocdn.net/kakaocorp/kakaocorp/admin/kakaoService/c942653a018c00001.png');
+}
+
+.kakaochannel {
+    background-image: url('https://t1.kakaocdn.net/kakaocorp/kakaocorp/admin/kakaoService/c9468d8a018c00001.png');
+}
+
+.kakaocloud {
+    background-image: url('https://t1.kakaocdn.net/kakaocorp/kakaocorp/admin/kakaoService/c9469d4a018c00001.png');
+}
+
+.agit {
+    background-image: url('https://t1.kakaocdn.net/kakaocorp/kakaocorp/admin/kakaoService/c946aa55018c00001.png');
+}
+
+.kakaomap {
+    background-image: url('https://t1.kakaocdn.net/kakaocorp/kakaocorp/admin/kakaoService/c947f606018c00001.png');
+}
+
+.kakaotaxi {
+    background-image: url('https://t1.kakaocdn.net/kakaocorp/kakaocorp/admin/kakaoService/c94804d8018c00001.png');
+}
+
+.kakaobank {
+    background-image: url('https://t1.kakaocdn.net/kakaocorp/kakaocorp/admin/kakaoService/c9481249018c00001.png');
+}
+
+.kakaotalkgift {
+    background-image: url('https://t1.kakaocdn.net/kakaocorp/kakaocorp/admin/kakaoService/c94a2627018c00001.png');
+}
+
+.kakaotalkshopping {
+    background-image: url('https://t1.kakaocdn.net/kakaocorp/kakaocorp/admin/kakaoService/c94a89d4018c00001.png');
+}
+
+.zigzag {
+    background-image: url('https://t1.kakaocdn.net/kakaocorp/kakaocorp/admin/kakaoService/c94a96f9018c00001.png');
+}
+
+.kakaopage {
+    background-image: url('https://t1.kakaocdn.net/kakaocorp/kakaocorp/admin/kakaoService/c94b668f018c00001.png');
+}
+
+.piccoma {
+    background-image: url('https://t1.kakaocdn.net/kakaocorp/kakaocorp/admin/kakaoService/c94b7687018c00001.png');
+}
+
+.melon {
+    background-image: url('https://t1.kakaocdn.net/kakaocorp/kakaocorp/admin/kakaoService/c94b83e3018c00001.png');
+}
+
+.kakaotogether {
+    background-image: url('https://t1.kakaocdn.net/kakaocorp/kakaocorp/admin/kakaoService/c94c09cc018c00001.png');
+}
+
+.more {
+    background-color: rgba(0, 0, 0, 0.4);
+    color: rgba(255, 255, 255, 1);
+    text-align: center;
+    line-height: 56px;
+    font-size: 36px;
+}
+
+.more:hover {
+    background-color: rgba(0, 0, 0, 1);
+}
+
+/*More Box*/
+.more-box {
+    display: flex;
+    justify-content: center;
+}
+
+.more-button {
+    display: flex;
+    width: 316px;
+    height: 76px;
+    background-color: rgba(240, 240, 240, 1);
+    color: rgba(0, 0, 0, 1);
+    font-size: 24px;
+    letter-spacing: -0.4px;
+    border-radius: 38px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
+
+.more-button:link{
+    color: rgba(0, 0, 0, 1);
+}
+
+.more-button:visited{
+    color: rgba(0, 0, 0, 1);
+}
+
+.more-button:hover{
+    cursor: pointer;
+}
+
+.more-button:active{
+    color: rgba(0, 0, 0, 1);
+}
+
+.round-black {
+    display: block;
+    width: 24px;
+    height: 24px;
+    background-color: rgba(0, 0, 0, 1);
+    color: rgba(255, 255, 255, 1);
+    text-align: center;
+    line-height: 24px;
+    border-radius: 12px;
+    font-size: 16px;
+}
+
+.more-button:hover .round-black {
+    background-color: rgba(0, 0, 0, 0.85);
+}

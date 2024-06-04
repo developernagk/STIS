@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex box 연습</title>
+
+    <style>
+        #flex-container {
+            width: 800px;
+            height: 800px;
+            background-color: rgba(0, 0, 0, 0.15);
+            display: flex;
+            gap: 8px;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .flex-item {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            /* margin-left: 8px; */
+            background-color: rgba(255, 0, 0, 0.7);
+            font-size: 24px;
+            font-weight: 900;
+            flex-grow: 1;
+        }
+        /* .flex-item:first-child {
+            margin-left: 0px;
+        } */
+    </style>
+
+</head>
+<body>
+    <div id="flex-container">
+        <div class="flex-item">1</div>
+        <div class="flex-item">2</div>
+        <div class="flex-item">3</div>
+    </div>
+</body>
+</html>

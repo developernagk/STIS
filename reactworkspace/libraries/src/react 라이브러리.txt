@@ -1,0 +1,8 @@
+zustand : 상태관리 라이브러리
+react-router : SPA(Single Page Application)에서 url을 상태로 관리하는 라이브러리
+axios : HTTP 통신 처리를 수월하게 하는 라이브러리
+react-cookie : React에서 브라우저의 쿠키를 관리하는 라이브러리
+
+dayjs, chartjs, react-daum-postcode, socket-io
+
+npm : node 기반의 패키지 매니저

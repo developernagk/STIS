@@ -12,6 +12,8 @@
     "@types/react-dom": "^18.2.25",
     "axios": "^1.6.8",
     "chart.js": "^4.4.2",
+    "dotenv": "^16.4.5",
+    "dotenv-cli": "^7.4.2",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
     "react-cookie": "^7.1.4",
@@ -24,10 +26,13 @@
     "zustand": "^4.5.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "dotenv -e .env react-scripts start",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build:local": "dotenv -e .env react-scripts build",
+    "build:development": "dotenv -e .env.development react-scripts build",
+    "build:staging": "dotenv -e .env.staging react-scripts build",
+    "build:production": "dotenv -e .env.production react-scripts build"
   },
   "eslintConfig": {
     "extends": [

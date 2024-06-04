@@ -34,6 +34,8 @@ function Index() {
 
 //   component: Application 컴포넌트   //
 function App() {
+  console.log(process.env.REACT_APP_ENVIRONMENT);
+
   //   render   //
   return (
     <Routes>
